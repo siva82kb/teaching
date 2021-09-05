@@ -1,0 +1,450 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"under",
+				"underbar"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "lectures/05-eigenvalvec/eigenvalvec.tex",
+			"settings":
+			{
+				"buffer_size": 25671,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					44,
+					1,
+					"paste",
+					null,
+					"AgAAAAAAAAAAAAAANgwAAAAAAAAAAAAANgwAAAAAAAA2DAAAAAAAAPwMAAAlIENvcHlyaWdodCAyMDA0IGJ5IFRpbGwgVGFudGF1IDx0YW50YXVAdXNlcnMuc291cmNlZm9yZ2UubmV0Pi4KJQolIEluIHByaW5jaXBsZSwgdGhpcyBmaWxlIGNhbiBiZSByZWRpc3RyaWJ1dGVkIGFuZC9vciBtb2RpZmllZCB1bmRlcgolIHRoZSB0ZXJtcyBvZiB0aGUgR05VIFB1YmxpYyBMaWNlbnNlLCB2ZXJzaW9uIDIuCiUKJSBIb3dldmVyLCB0aGlzIGZpbGUgaXMgc3VwcG9zZWQgdG8gYmUgYSB0ZW1wbGF0ZSB0byBiZSBtb2RpZmllZAolIGZvciB5b3VyIG93biBuZWVkcy4gRm9yIHRoaXMgcmVhc29uLCBpZiB5b3UgdXNlIHRoaXMgZmlsZSBhcyBhCiUgdGVtcGxhdGUgYW5kIG5vdCBzcGVjaWZpY2FsbHkgZGlzdHJpYnV0ZSBpdCBhcyBwYXJ0IG9mIGEgYW5vdGhlcgolIHBhY2thZ2UvcHJvZ3JhbSwgSSBncmFudCB0aGUgZXh0cmEgcGVybWlzc2lvbiB0byBmcmVlbHkgY29weSBhbmQKJSBtb2RpZnkgdGhpcyBmaWxlIGFzIHlvdSBzZWUgZml0IGFuZCBldmVuIHRvIGRlbGV0ZSB0aGlzIGNvcHlyaWdodAolIG5vdGljZS4gCgpcZG9jdW1lbnRjbGFzc1thc3BlY3RyYXRpbz0xNjlde2JlYW1lcn0KJVxkb2N1bWVudGNsYXNze2JlYW1lcn0KClxzZXRiZWFtZXJzaXple3RleHQgbWFyZ2luIGxlZnQ9NW1tLCB0ZXh0IG1hcmdpbiByaWdodD01bW19CgoKXGRlZmJlYW1lcnRlbXBsYXRle2hlYWRsaW5lfXtteSBoZWFkZXJ9eyUKXHZza2lwMXB0JQpcbWFrZWJveFswcHRdW2xde1wsXGluc2VydHNob3J0YXV0aG9yfSUKXGhzcGFjZSp7XGZpbGx9XGluc2VydHNob3J0dGl0bGUvXGluc2VydHNob3J0c3VidGl0bGVcaHNwYWNlKntcZmlsbH0lClxsbGFwe1xpbnNlcnRwYWdlbnVtYmVyL1xpbnNlcnRwcmVzZW50YXRpb25lbmRwYWdlXCx9Cn0KXHNldGJlYW1lcnRlbXBsYXRle2hlYWRsaW5lfVtteSBoZWFkZXJdCgpcbGV0XG9sZGl0ZW1caXRlbQpccmVuZXdjb21tYW5ke1xpdGVtfXtcc2V0bGVuZ3Roe1xpdGVtc2VwfXtcZmlsbH1cb2xkaXRlbX0KClx1c2VwYWNrYWdle3NvdWx9Clx1c2VwYWNrYWdle3Rrei1ldWNsaWRlfQpcdXNldGlremxpYnJhcnl7Y2FsY30KXHVzZXBhY2thZ2VbXXthbGdvcml0aG0yZX0KXHVzZXBhY2thZ2V7Y2hhbmdlcGFnZX0KXHVzZXBhY2thZ2V7YW1zc3ltYn0KXHVzZXBhY2thZ2V7eGNvbG9yfQpcdXNlcGFja2FnZXttYXRodG9vbHN9Clx1c2VwYWNrYWdle3Rjb2xvcmJveH0KXHVzZXBhY2thZ2V7dGlren0KXHVzZXBhY2thZ2V7dGlrei0zZHBsb3R9CgolIFx1c2VwYWNrYWdlW21hdGhde2NlbGxzcGFjZX0KJSBcY2VsbHNwYWNldG9wbGltaXQgNHB0CiUgXGNlbGxzcGFjZWJvdHRvbWxpbWl0IDRwdAolXHVzZXRpa3psaWJyYXJ5e2Fycm93cy5tZXRhfQoKJVxzZXRiZWFtZXJ0ZW1wbGF0ZXtpdGVtaXplIGl0ZW1zfXstfQoKJVx1c2VwYWNrYWdle2hlbHZldH0KXHVzZWZvbnR0aGVtZXtwcm9mZXNzaW9uYWxmb250c30gJSB1c2luZyBub24gc3RhbmRhcmQgZm9udHMgZm9yIGJlYW1lcgolXHVzZWZvbnR0aGVtZXtzZXJpZn0gJSBkZWZhdWx0IGZhbWlseSBpcyBzZXJpZgolXHVzZXBhY2thZ2V7Zm9udHNwZWN9CiVcc2V0bWFpbmZvbnR7TGliZXJhdGlvbiBTZXJpZn0KCiUgVGhlcmUgYXJlIG1hbnkgZGlmZmVyZW50IHRoZW1lcyBhdmFpbGFibGUgZm9yIEJlYW1lci4gQSBjb21wcmVoZW5zaXZlCiUgbGlzdCB3aXRoIGV4YW1wbGVzIGlzIGdpdmVuIGhlcmU6CiUgaHR0cDovL2RlaWMudWFiLmVzL35pYmxhbmVzL2JlYW1lcl9nYWxsZXJ5L2luZGV4X2J5X3RoZW1lLmh0bWwKJSBZb3UgY2FuIHVuY29tbWVudCB0aGUgdGhlbWVzIGJlbG93IGlmIHlvdSB3b3VsZCBsaWtlIHRvIHVzZSBhIGRpZmZlcmVudAolIG9uZToKJVx1c2V0aGVtZXtBbm5BcmJvcn0KJVx1c2V0aGVtZXtBbnRpYmVzfQolXHVzZXRoZW1le0Jlcmdlbn0KJVx1c2V0aGVtZXtCZXJrZWxleX0KJVx1c2V0aGVtZXtCZXJsaW59CiVcdXNldGhlbWV7Qm9hZGlsbGF9CiVcdXNldGhlbWV7Ym94ZXN9CiVcdXNldGhlbWV7Q2FtYnJpZGdlVVN9CiVcdXNldGhlbWV7Q29wZW5oYWdlbn0KJVx1c2V0aGVtZXtEYXJtc3RhZHR9CiVcdXNldGhlbWV7ZGVmYXVsdH0KJVx1c2V0aGVtZXtGcmFua2Z1cnR9CiVcdXNldGhlbWV7R29ldHRpbmdlbn0KJVx1c2V0aGVtZXtIYW5ub3Zlcn0KJVx1c2V0aGVtZXtJbG1lbmF1fQolXHVzZXRoZW1le0p1YW5MZXNQaW5zfQolXHVzZXRoZW1le0x1ZWJlY2t9CiVcdXNldGhlbWV7TWFkcmlkfQolXHVzZXRoZW1le01hbG1vZX0KJVx1c2V0aGVtZXtNYXJidXJnfQolXHVzZXRoZW1le01vbnRwZWxsaWVyfQolXHVzZXRoZW1le1BhbG9BbHRvfQolXHVzZXRoZW1le1BpdHRzYnVyZ2h9CiVcdXNldGhlbWV7Um9jaGVzdGVyfQolXHVzZXRoZW1le1NpbmdhcG9yZX0KJVx1c2V0aGVtZXtTemVnZWR9CiVcdXNldGhlbWV7V2Fyc2F3fQoKClxkZWZcbWZ7XGVuc3VyZW1hdGhcbWF0aGJmfQpcZGVmXG1ie1xlbnN1cmVtYXRoXG1hdGhiYn0KXGRlZlxscHtcZW5zdXJlbWF0aFxsZWZ0KH0KXGRlZlxycHtcZW5zdXJlbWF0aFxyaWdodCl9ClxkZWZcbHZ7XGVuc3VyZW1hdGhcbGVmdFxsdmVydH0KXGRlZlxydntcZW5zdXJlbWF0aFxyaWdodFxydmVydH0KXGRlZlxsVntcZW5zdXJlbWF0aFxsZWZ0XGxWZXJ0fQpcZGVmXHJWe1xlbnN1cmVtYXRoXHJpZ2h0XHJWZXJ0fQpcZGVmXGxje1xlbnN1cmVtYXRoXGxlZnRce30KXGRlZlxyY3tcZW5zdXJlbWF0aFxyaWdodFx9fQpcZGVmXGxze1xlbnN1cmVtYXRoXGxlZnRbfQpcZGVmXHJze1xlbnN1cmVtYXRoXHJpZ2h0XX0KXGRlZlxibXh7XGVuc3VyZW1hdGhcYmVnaW57Ym1hdHJpeCp9W3JdfQpcZGVmXGVteHtcZW5zdXJlbWF0aFxlbmR7Ym1hdHJpeCp9fQpcZGVmXGJteGN7XGVuc3VyZW1hdGhcYmVnaW57Ym1hdHJpeCp9W2NdfQpcZGVmXHR7XGxwIHRccnB9ClxkZWZca3tcbHMga1xyc30KCgpcbmV3Y29tbWFuZHtcZGVtb2V4fVsyXXtcb25zbGlkZTwjMS0+XGJlZ2lue2NvbG9yfXtibGFjayE2MH0gIzIgXGVuZHtjb2xvcn19ClxuZXdjb21tYW5ke1xkZW1vZXhjfVszXXtcb25zbGlkZTwjMS0+XGJlZ2lue2NvbG9yfXsjMn0gIzMgXGVuZHtjb2xvcn19ClxuZXdjb21tYW5ke1xhbmltfVszXXtcb25zbGlkZTwjMS0+e1xiZWdpbntjb2xvcn17IzIhNjB9ICMzIFxlbmR7Y29sb3J9fX0KXG5ld2NvbW1hbmR7XGN0fVsxXXtcbHAgIzFccnB9ClxuZXdjb21tYW5ke1xkdH1bMV17XGxzICMxXHJzfQpcbmV3Y29tbWFuZHtcY29sc31bMl17XGJlZ2lue2NvbHVtbnN9WyMxXSAjMiBcZW5ke2NvbHVtbnN9fQpcbmV3Y29tbWFuZHtcY29sfVsyXXtcYmVnaW57Y29sdW1ufXsjMX0gIzIgXGVuZHtjb2x1bW59fQo",
+					"AQAAAAAAAAABAAAAAAAAAAAAAAD8DAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					50,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"BAAAAFkSAAAAAAAAWxIAAAAAAAAAAAAAExIAAAAAAAAVEgAAAAAAAAAAAAAFEgAAAAAAAAcSAAAAAAAAAAAAAPcRAAAAAAAA+REAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA+REAAAAAAABaEgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					58,
+					2,
+					"left_delete",
+					null,
+					"AgAAAF1jAAAAAAAAXWMAAAAAAACxAAAAJFxidWxsZXQkIFdyaXRlIGRvd24gdGhlIEpvcmRhbiBmb3JtLlxcJFxsYW1iZGFfMSA9IDEkIChBTSA9IDIsIEdNID0gMSlcXCRcbGFtYmRhXzIgPSAxMSQgKEFNID0gMywgR00gPSAyKVxcJFxsYW1iZGFfMyA9IDAkIChBTSA9IDMsIEdNID0gMSlcXCRcbGFtYmRhXzQgPSAtMSQgKEFNID0gMiwgR00gPSAyKS4KXGMAAAAAAABcYwAAAAAAAAEAAAAK",
+					"AQAAAAAAAAABAAAAXWMAAAAAAAAOZAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					65,
+					1,
+					"insert",
+					{
+						"characters": "itemize"
+					},
+					"EAAAAHtiAAAAAAAAfGIAAAAAAAAAAAAAfGIAAAAAAAB8YgAAAAAAAAkAAABlbnVtZXJhdGWJYQAAAAAAAIphAAAAAAAAAAAAAIphAAAAAAAAimEAAAAAAAAJAAAAZW51bWVyYXRldGIAAAAAAAB1YgAAAAAAAAAAAACKYQAAAAAAAIthAAAAAAAAAAAAAHZiAAAAAAAAd2IAAAAAAAAAAAAAi2EAAAAAAACMYQAAAAAAAAAAAAB4YgAAAAAAAHliAAAAAAAAAAAAAIxhAAAAAAAAjWEAAAAAAAAAAAAAemIAAAAAAAB7YgAAAAAAAAAAAACNYQAAAAAAAI5hAAAAAAAAAAAAAHxiAAAAAAAAfWIAAAAAAAAAAAAAjmEAAAAAAACPYQAAAAAAAAAAAAB+YgAAAAAAAH9iAAAAAAAAAAAAAI9hAAAAAAAAkGEAAAAAAAAAAAAA",
+					"AQAAAAAAAAACAAAAiWEAAAAAAACSYQAAAAAAAAAAAAAAAPC/e2IAAAAAAACEYgAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		},
+		{
+			"file": "lectures/04-matrixinverses/matrixinverses.tex",
+			"settings":
+			{
+				"buffer_size": 19246,
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+			]
+		}
+	],
+	"build_system": "Packages/LaTeXing/LaTeX.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/LaTeXing/LaTeX.sublime-build",
+					""
+				],
+				[
+					"Packages/LaTeXing/LaTeX.sublime-build",
+					"Clean up Files"
+				]
+			],
+			[
+				"Packages/LaTeXing/LaTeX.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"view ",
+				"View: Toggle Side Bar"
+			],
+			[
+				"ope",
+				"LaTeXing: Open PDF"
+			],
+			[
+				"pdf",
+				"LaTeXing: Open PDF"
+			],
+			[
+				"open",
+				"LaTeXing: Open PDF"
+			],
+			[
+				"bui",
+				"Build With: LaTeX"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"build",
+				"Build With: LaTeX"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"latex",
+				"LaTeXing: Jump To PDF"
+			],
+			[
+				"instal",
+				"Install Package Control"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 100.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/linear_systems",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/linear_systems/archive",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/linear_systems/lectures",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/linear_systems/lectures/04-matrixinverses",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/linear_systems/lectures/05-eigenvalvec"
+	],
+	"file_history":
+	[
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/linear_systems/lectures/05-eigenvalvec/eugenvalvec.synctex.gz",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/linear_systems/lectures/02-matrices/matrices.tex",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/linear_systems/lectures/04-matrixinverses/matrixinverses.tex",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/linear_systems/lectures/05-eigenvalvec/eugenvalvec.tex",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/linear_systems/archive/quizes/quiz-03/quiz-03.tex",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/linear_systems/archive/quizes/quiz-04/quiz-04.tex",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/linear_systems/lectures/03-orthogonality/orthogonality.tex",
+		"/d/Programs/texlive/2020/texmf-dist/tex/latex/circuitikz/circuitikz.sty",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/.gitignore",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/readme.md",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/linear_systems/lectures/04-matrixinverses/matrixinverses.pdf",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/linear_systems/lectures/04-matrixinverses/lecture.tex",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/linear_systems/quizes/quiz-03/quiz-03.tex",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/linear_systems/lectures/01-vectors/vectors.tex",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/linear_systems/quizes/quiz-02/quiz-02.tex",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/linear_systems/quizes/quizes_all.tex",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/intro_to_dsp/lectures/_misc/lecture_1/lecture_1.tex",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/intro_to_dsp/lectures/03-signals/signals.tex",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/intro_to_dsp/lectures/_misc/lecture_2/lecture_2.tex",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/linear_systems/assignment/03-orthogonality/orthogonality.tex",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/linear_systems/assignment/02-matrix/matrix.tex",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/linear_systems/assignment/sections/orthogonality.tex",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/linear_systems/lectures/03-orthogonality/lecture.tex",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/linear_systems/assignment/03-orthogonality/matrix.tex",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/linear_systems/lectures/02-matrices/lecture.tex",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/linear_systems/assignment/sections/matrices.tex",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/linear_systems/lectures/01-vectors/lecture.tex",
+		"/d/work/OneDrive/OneDrive",
+		"/C/Users/Siva/AppData/Local/SumatraPDF/Christian",
+		"/C/Users/Siva/AppData/Local/SumatraPDF/Medical",
+		"/C/Users/Siva/AppData/Local/SumatraPDF/College/teaching/linear_systems/lectures/02-matrices/lecture.tex",
+		"/C/Users/Siva/AppData/Local/SumatraPDF/College/teaching/linear_systems/lectures/01-vectors/lecture.tex",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/linear_systems/quizes/quiz-01/quiz-01.tex",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/linear_systems/quizes/quiz-01/quizes.tex",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/linear_systems/quizes/quizes.tex",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/intro_to_dsp/lectures/00-mathprelim/mathprelim.tex",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/intro_to_dsp/assignment/00-mathprelim/mathprelim.tex",
+		"/C/Users/Siva/AppData/Roaming/Sublime Text/Packages/LaTeXing/LaTeXing.sublime-settings",
+		"/C/Users/Siva/AppData/Roaming/Sublime Text/Packages/User/LaTeXing.sublime-settings",
+		"/C/Users/Siva/AppData/Roaming/Sublime Text/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Siva/AppData/Roaming/Sublime Text/Packages/Default/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 22.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"enumerate",
+			"sfrac",
+			"Mark: 1",
+			"bmatrix",
+			"_n",
+			"n}",
+			"{m",
+			"^m",
+			"\\anim{1}{blue}",
+			"\\vspace{0.2cm}",
+			"^T",
+			"sections/",
+			"Large",
+			"\\mf{a}",
+			"rank",
+			"Basis",
+			"small",
+			"scriptsize",
+			"scale=0.5",
+			"0,",
+			"scale=0.5",
+			"scale=0.8",
+			" node[right,below]",
+			"scale=0.5",
+			"o",
+			"4",
+			")",
+			"2",
+			"small",
+			"a_",
+			"\\end{bmatrix}",
+			"\\begin{bmatrix}",
+			"Equation ",
+			"\\tilde{\\mf{a}}",
+			"&",
+			"\\tilde{\\mf{a}}",
+			"\\mf{b}",
+			"; (",
+			"^T",
+			"enumerate*",
+			"\\",
+			"pdf",
+			"  *   "
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"folders":
+	[
+		{
+			"path": "D:\\work\\OneDrive\\OneDrive - Christian Medical College\\teaching\\linear_systems"
+		}
+	],
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "lectures/05-eigenvalvec/eigenvalvec.tex",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 25671,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								25414,
+								25414
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeXing/support/LaTeX Beamer.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 8467.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "lectures/04-matrixinverses/matrixinverses.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 19246,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								3126
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeXing/support/LaTeX Beamer.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1014.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 22.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 270.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "",
+	"replace":
+	{
+		"height": 40.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 234.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

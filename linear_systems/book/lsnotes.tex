@@ -1,0 +1,268 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LaTeX book template                           %%
+%% Author:  Amber Jain (http://amberj.devio.us/) %%
+%% License: ISC license                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,10pt,twocolumn]{book}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage{tkz-euclide}
+\usetikzlibrary{calc}
+\usepackage[]{algorithm2e}
+\usepackage{changepage}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{xcolor}
+\usepackage{mathtools}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{tkz-euclide}
+\usepackage{circuitikz}
+\usepackage{pgfplots}
+\usepackage{subcaption}
+\usepackage[inline]{enumitem}\usepackage{geometry}
+\geometry{
+    a4paper,
+    total={170mm,257mm},
+    left=15mm,
+    right=15mm,
+    top=15mm,
+    bottom=15mm,
+}
+\usepackage{multicol}
+
+
+% \pgfplotsset{width=7cm,compat=1.8}
+
+\usepackage{blindtext}
+
+\usetikzlibrary{positioning}
+
+% EXAMPLES
+%% set the counter for your environment
+\newcounter{example}
+\renewcommand{\theexample}{\thesection.\arabic{example}}
+
+\newcounter{definition}
+\renewcommand{\thedefinition}{\thechapter.\arabic{example}}
+
+%% define the style
+\mdfdefinestyle{example}{%
+    linecolor=red,
+    outerlinewidth=0.5pt,
+    topline=false,
+    bottomline=false,
+    % leftline=false,
+    rightline=false,
+    skipabove=\baselineskip,
+    skipbelow=\baselineskip,
+    frametitle=\mbox{},
+}
+
+\mdfdefinestyle{definition}{%
+    linecolor=blue,
+    outerlinewidth=0.5pt,
+    topline=false,
+    bottomline=false,
+    rightline=false,
+    skipabove=\baselineskip,
+    skipbelow=\baselineskip,
+    frametitle=\mbox{},
+}
+%% setup the environments
+%%% with number
+\newmdenv[%
+    style=example,
+    settings={\global\refstepcounter{example}},
+    frametitlefont={\bfseries {Example}~\theexample\quad},
+]{example}
+
+%%% without number (starred version)
+\newmdenv[%
+    style=example,
+    frametitlefont={\bfseries Example~\quad},
+]{example*}
+
+%%% without number (starred version)
+\newmdenv[%
+    style=example,
+    frametitlefont={\bfseries {\color{red!70!} Problem}~\quad},
+]{problem*}
+
+%%% dwith number
+\newmdenv[%
+    style=definition,
+    settings={\global\refstepcounter{example}},
+    frametitlefont={\bfseries {\color{blue!70!} Definition}~\thedefinition\quad},
+]{definition}
+
+% BOXES
+%% set up the environment
+\newmdenv[%
+    backgroundcolor=red!8,
+    linecolor=red,
+    outerlinewidth=1pt,
+    roundcorner=5mm,
+    skipabove=\baselineskip,
+    skipbelow=\baselineskip,
+]{myboxed}
+
+
+\def\mf{\ensuremath\mathbf}
+\def\mb{\ensuremath\mathbb}
+\def\mc{\ensuremath\mathcal}
+\def\lp{\ensuremath\left(}
+\def\rp{\ensuremath\right)}
+\def\lv{\ensuremath\left\lvert}
+\def\rv{\ensuremath\right\rvert}
+\def\lV{\ensuremath\left\lVert}
+\def\rV{\ensuremath\right\rVert}
+\def\lc{\ensuremath\left\{}
+\def\rc{\ensuremath\right\}}
+\def\ls{\ensuremath\left[}
+\def\rs{\ensuremath\right]}
+\def\bmx{\ensuremath\begin{bmatrix*}[r]}
+\def\emx{\ensuremath\end{bmatrix*}}
+\def\bmxc{\ensuremath\begin{bmatrix*}[c]}
+
+\newcommand{\demoex}[2]{\onslide<#1->\begin{color}{black!60} #2 \end{color}}
+\newcommand{\demoexc}[3]{\onslide<#1->\begin{color}{#2} #3 \end{color}}
+\newcommand{\anim}[3]{\onslide<#1->{\begin{color}{#2!60} #3 \end{color}}}
+\newcommand{\ct}[1]{\lp #1\rp}
+\newcommand{\dt}[1]{\ls #1\rs}
+\newcommand{\cols}[2]{\begin{columns}[#1] #2 \end{columns}}
+\newcommand{\col}[2]{\begin{column}{#1} #2 \end{column}}
+\newcommand{\eqnwl}[1]{\begin{equation} #1 \end{equation}}
+\newcommand{\eqnwol}[1]{\begin{equation*} #1 \end{equation*}}
+% \newcommand{\definition}[2]{\vspace{0.25cm}\noindent\textbf{\underline{Definition}}: \textbf{#1}\\\textit{#2}}
+
+
+\renewcommand{\familydefault}{\sfdefault}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 'dedication' environment: To add a dedication paragraph at the start of book %
+% Source: http://www.tug.org/pipermail/texhax/2010-June/015184.html            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{dedication}
+{
+   \cleardoublepage
+   \thispagestyle{empty}
+   \vspace*{\stretch{1}}
+   \hfill\begin{minipage}[t]{0.66\textwidth}
+   \raggedright
+}
+{
+   \end{minipage}
+   \vspace*{\stretch{3}}
+   \clearpage
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapter quote at the start of chapter        %
+% Source: http://tex.stackexchange.com/a/53380 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\renewcommand{\@chapapp}{}% Not necessary...
+\newenvironment{chapquote}[2][2em]
+  {\setlength{\@tempdima}{#1}%
+   \def\chapquote@author{#2}%
+   \parshape 1 \@tempdima \dimexpr\textwidth-2\@tempdima\relax%
+   \itshape}
+  {\par\normalfont\hfill--\ \chapquote@author\hspace*{\@tempdima}\par\bigskip}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% First page of book which contains 'stuff' like: %
+%  - Book title, subtitle                         %
+%  - Book author name                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Book's title and subtitle
+% \title{\Huge \textbf{Linear Systems} \footnote{} \\ \huge Course Notes \footnote\{}}
+\title{\Huge \textbf{Linear Systems}\\ \huge Course Notes}
+% \title{\Huge \textbf{Linear Systems}}
+% Author
+% \author{\textsc{Sivakumar Balasubramanian}\thanks{\url{www.example.com}}}
+\author{\textsc{Sivakumar Balasubramanian}}
+
+\begin{document}
+
+\frontmatter
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Add a dedication paragraph to dedicate your book to someone %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{dedication}
+% Dedicated to Calvin and Hobbes.
+% \end{dedication}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Auto-generated table of contents, list of figures and list of tables %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+% \listoffigures
+% \listoftables
+
+\mainmatter
+
+%%%%%%%%%%%
+% Preface %
+%%%%%%%%%%%
+% \chapter*{Preface}
+% Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis risus ante, auctor et pulvinar non, posuere ac lacus. Praesent egestas nisi id metus rhoncus ac lobortis sem hendrerit. Etiam et sapien eget lectus interdum posuere sit amet ac urna.
+
+% \section*{Un-numbered sample section}
+% Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis risus ante, auctor et pulvinar non, posuere ac lacus. Praesent egestas nisi id metus rhoncus ac lobortis sem hendrerit. Etiam et sapien eget lectus interdum posuere sit amet ac urna. Aliquam pellentesque imperdiet erat, eget consectetur felis malesuada quis. Pellentesque sollicitudin, odio sed dapibus eleifend, magna sem luctus turpis.
+
+% \section*{Another sample section}
+% Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis risus ante, auctor et pulvinar non, posuere ac lacus. Praesent egestas nisi id metus rhoncus ac lobortis sem hendrerit. Etiam et sapien eget lectus interdum posuere sit amet ac urna. Aliquam pellentesque imperdiet erat, eget consectetur felis malesuada quis. Pellentesque sollicitudin, odio sed dapibus eleifend, magna sem luctus turpis, id aliquam felis dolor eu diam. Etiam ullamcorper, nunc a accumsan adipiscing, turpis odio bibendum erat, id convallis magna eros nec metus.
+
+% \section*{Structure of book}
+% % You might want to add short description about each chapter in this book.
+% Each unit will focus on <SOMETHING>.
+
+% \section*{About the companion website}
+% The website\footnote{\url{https://github.com/amberj/latex-book-template}} for this file contains:
+% \begin{itemize}
+%   \item A link to (freely downlodable) latest version of this document.
+%   \item Link to download LaTeX source for this document.
+%   \item Miscellaneous material (e.g. suggested readings etc).
+% \end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Give credit where credit is due. %
+% Say thanks!                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section*{Acknowledgements}
+% \begin{itemize}
+% \item A special word of thanks goes to Professor Don Knuth\footnote{\url{http://www-cs-faculty.stanford.edu/~uno/}} (for \TeX{}) and Leslie Lamport\footnote{\url{http://www.lamport.org/}} (for \LaTeX{}).
+% \item I'll also like to thank Gummi\footnote{\url{http://gummi.midnightcoding.org/}} developers and LaTeXila\footnote{\url{http://projects.gnome.org/latexila/}} development team for their awesome \LaTeX{} editors.
+% \item I'm deeply indebted my parents, colleagues and friends for their support and encouragement.
+% \end{itemize}
+% \mbox{}\\
+% %\mbox{}\\
+% \noindent Amber Jain \\
+% \noindent \url{http://amberj.devio.us/}
+
+%%%%%%%%%%%
+% Chapets %
+%%%%%%%%%%%
+\input{sections/vecspaces}
+% \input{sections/sigsys}
+% \input{sections/impsigs}
+% \input{sections/ctlti}
+% \input{sections/dtlti}
+\input{sections/problems}
+
+\end{document}
