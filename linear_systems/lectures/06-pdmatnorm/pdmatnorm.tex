@@ -14,6 +14,7 @@
 %\documentclass{beamer}
 
 \setbeamersize{text margin left=10mm, text margin right=10mm}
+% \setbeamersize{text margin left=2mm, text margin right=2mm}
 
 \defbeamertemplate{headline}{my header}{%
 \vskip1pt%
@@ -22,6 +23,10 @@
 \llap{\insertpagenumber/\insertpresentationendpage\,}
 }
 \setbeamertemplate{headline}[my header]
+
+
+\let\olditem\item
+\renewcommand{\item}{\setlength{\itemsep}{\fill}\olditem}
 
 \usepackage{soul}
 \usepackage{tkz-euclide}
@@ -33,18 +38,16 @@
 \usepackage{mathtools}
 \usepackage{tcolorbox}
 \usepackage{tikz}
-\usetikzlibrary{arrows}
 \usepackage{tikz-3dplot}
 \usepackage{tkz-euclide}
 \usepackage{circuitikz}
-\usepackage{pgfplots}
-\pgfplotsset{width=7cm,compat=1.8}
-
-\usetikzlibrary{positioning}
+\usepackage{mleftright}
+\usepackage{xfrac}
 % \usepackage[math]{cellspace}
 % \cellspacetoplimit 4pt
 % \cellspacebottomlimit 4pt
 %\usetikzlibrary{arrows.meta}
+
 
 
 %\setbeamertemplate{itemize items}{-}
@@ -90,6 +93,7 @@
 
 \def\mf{\ensuremath\mathbf}
 \def\mb{\ensuremath\mathbb}
+\def\mc{\ensuremath\mathcal}
 \def\lp{\ensuremath\left(}
 \def\rp{\ensuremath\right)}
 \def\lv{\ensuremath\left\lvert}
@@ -103,7 +107,6 @@
 
 \newcommand{\demoex}[2]{\onslide<#1->\begin{color}{black!60} #2 \end{color}}
 \newcommand{\anim}[3]{\onslide<#1->{\begin{color}{#2!60} #3 \end{color}}}
-
 
 
 \title{Linear Systems}
@@ -154,22 +157,9 @@
 % Let's get started
 \begin{document}
 
-\pgfplotsset{
-  compat=1.8,
-  colormap={whitered}{color(0cm)=(white); color(1cm)=(orange!75!red)}
-}
-
-
 \begin{frame}
   \titlepage
 \end{frame}
-
-\begin{frame}[t]{References}
-\begin{itemize}
-    \item G Strang, Linear Algebra: Chapters 6 and 7.
-\end{itemize} 
-\end{frame}
-
 
 \begin{frame}[t]{Positive definite matrices}
 \begin{itemize}
@@ -178,53 +168,50 @@
     \item What can we say about $\mf{x}^T\mf{Ax}$, where $\mf{A} \in \mb{R}^{n \times n}$?
     \begin{itemize}
         \item Is it positive for all $\mf{x} \neq \mf{0}$?
-        \anim{2}{blue}{
-        E.g. $\mf{I}, \,\, \bmx3 & 0\\0 & 2\emx$
-        }
+        $\mf{I}, \,\, \bmx3 & 0\\0 & 2\emx$ 
         \item Can it be zero for some $\mf{x} \neq \mf{0}$? 
-        \anim{3}{blue}{
-        E.g. $\bmx1 & -1\\-1 & 1\emx$
-        }
+        $\bmx1 & -1\\-1 & 1\emx$
         \item Can it be negative some $\mf{x} \neq \mf{0}$? 
-        \anim{4}{blue}{
-        E.g. $\bmx-2 & 0\\0 & -1\emx, \bmx1 & -4\\-4 & 1\emx$
-        }
+        $\bmx-2 & 0\\0 & -1\emx, \bmx1 & -4\\-4 & 1\emx$
     \end{itemize}
+\end{itemize}
+\end{frame}
 
+
+\begin{frame}[t]{Positive definite matrices}
+\begin{itemize}
     \item Any matrix $\mf{A}$ for which $\mf{x}^T\mf{A}\mf{x} > 0$, for all $\mf{x} \neq \mf{0}$ is called a \textit{positive definite matrix}.
 
-    \item Positive definite matrices are very useful and are commonly encountered in practice: optimization, mechanics (mass matrix, stiffness matrix), stability analysis, co-variance matrices etc. 
+    \item Positive definite matrices are very useful and are commonly encountered in practice: optimization, mechanics (mass matrix, stiffness matrix), stability analysis, co-variance matrices etc.
 \end{itemize}
-\demoex{5}{
-    Are the following matrices positive definite: $\bmx 2 & -6\\2 & 1\emx, \bmx 5 & -1\\14 & 11\emx$
-}
+\end{frame}
+
+
+\begin{frame}[t]{Positive definite matrices}
+\begin{itemize}
+    \item Are the following matrices positive definite? $\bmx 2 & -6\\2 & 1\emx, \bmx 5 & -1\\14 & 11\emx$ 
+\end{itemize}
 \end{frame}
 
 
 \begin{frame}[t]{Positive Definite Matrix}
-\vspace{-0.4cm}
-\begin{small}
 \begin{itemize}
     \item The idea of positive definiteness is intimately related to the problem of minimization of a function.
 
     \item Consider the following  function of a single variable $f\lp x\rp$. This function reaches a minimum at $x = 0$, when $\frac{df\lp x\rp}{dx} \big\rvert_{x=0} = 0$ and $\frac{d^2f\lp x\rp}{dx^2} \big\rvert_{x=0} > 0$. E.g.,
     $$f\lp x\rp = 3x^2 \rightarrow \frac{df\lp x\rp}{dx} \big\rvert_{x=0} = 0, \,\frac{d^2f\lp x\rp}{dx^2} \big\rvert_{x=0}  = 3 > 0$$
+\end{itemize}
+\end{frame}
 
+
+\begin{frame}[t]{Positive Definite Matrix}
+\begin{itemize}
     \item What about $f\lp x_1, x_2 \rp = ax_1^2 + 2bx_1x_2 + cx_2^2$? We can extend the previous idea using partial derivatives.
     \[ \frac{\partial f\lp x_1, x_2 \rp}{\partial x_1} = 0, \,\, \frac{\partial f\lp x_1, x_2 \rp}{\partial x_2} = 0, \,\, \frac{\partial^2 f\lp x_1, x_2 \rp}{\partial x_1^2} > 0, \,\, \frac{\partial^2 f\lp x_1, x_2 \rp}{\partial x_2^2} > 0 \]
     Is this enough? $\frac{\partial^2f\lp x_1, x_2\rp}{\partial x_1 \partial x_2}$ must also be taken into account.
-\end{itemize}
 
-\demoex{2}{
-    Are these functions positive for all $x_1, x_2$? 1) $x_1^2 + x_1x_2 + x_2^2$,\hspace{0.1cm}
-}
-\demoex{3}{
-    2) $x_1^2 + 2x_1x_2 + x_2^2$,\hspace{0.1cm}
-}
-\demoex{4}{
-    3) $x_1^2 + 3x_1x_2 + x_2^2$
-}
-\end{small}
+    \item Are these functions positive for all $x_1, x_2$? 1) $x_1^2 + x_1x_2 + x_2^2$, 2) $x_1^2 + 2x_1x_2 + x_2^2$, 3) $x_1^2 + 3x_1x_2 + x_2^2$?
+\end{itemize}
 \end{frame}
 
 
@@ -237,11 +224,13 @@
     \[ a > 0\,\,\,\text{ and }\,\,\,c - \frac{b^2}{a} > 0 \implies ac > b^2 \]
     \[ \frac{\partial^2f\lp x_1, x_2 \rp}{\partial x_1^2} > 0\,\,\,\text{ and }\,\,\,\frac{\partial^2f\lp x_1, x_2 \rp}{\partial x_1^2} \frac{\partial^2f\lp x_1, x_2 \rp}{\partial x_2^2} > \lp\frac{\partial^2 f\lp x_1, x_2 \rp}{\partial x_1 \partial x_2}\rp^2 \]
 \end{itemize}
-\vspace{0.3cm}
+\end{frame}
 
-\demoex{2}{
-    Verfy this on the following functions: 1) $x_1^2 + x_1x_2 + x_2^2$,\hspace{0.1cm} 2) $x_1^2 + 2x_1x_2 + x_2^2$,\hspace{0.1cm} 3) $x_1^2 + 3x_1x_2 + x_2^2$
-}
+
+\begin{frame}[t]{Positive Definite Matrix}
+\begin{itemize}
+    \item Verfy this on the following functions: 1) $x_1^2 + x_1x_2 + x_2^2$,\hspace{0.1cm} 2) $x_1^2 + 2x_1x_2 + x_2^2$,\hspace{0.1cm} 3) $x_1^2 + 3x_1x_2 + x_2^2$
+\end{itemize}
 \end{frame}
 
 
@@ -261,16 +250,18 @@ a_{1n} & a_{2n} & \ldots & a_{nn}
 \emx \bmx
 x_{1} \\ x_{2} \\ \ldots \\ x_{n}
 \emx = \sum_{i=1}^na_{ii}x_i^2 + 2\sum_{i=1}^n\sum_{j=1, j \neq i}^n a_{ij}x_ix_j \]
+\end{frame}
 
+
+\begin{frame}[t]{Positive Definite Matrix}
 In general, $\mf{A} \in \mb{R}^{n \times n}$ is positive definite, if:
 \begin{itemize}
-    \item The eigenvalues of $\mf{A}$ are all positive.
+    \item The eigenvalues of $\mf{A}$ are all positive. \vspace{-2cm}
     \item The pivots (without row exchange) are all positive.
 \end{itemize}
+\vspace{2cm}
 
-\demoex{2}{
-    Show that any $\mf{A}$ is positive definite if the symmetric matrix $\mf{A} + \mf{A}^T$ is positive definite. Note: \textit{This should explain why we have only been talking about symmetric matrices.}
-}
+Show that any $\mf{A}$ is positive definite if the symmetric matrix $\mf{A} + \mf{A}^T$ is positive definite. Note: \textit{This should explain why we have only been talking about symmetric matrices.}
 \end{frame}
 
 
@@ -296,7 +287,6 @@ In general, $\mf{A} \in \mb{R}^{n \times n}$ is positive definite, if:
     $C$ is the maximum factor by which $\mf{A}$ amplifies the vector $\mf{x}$.
     \item The induced norm of a matrix is defined as,
     \[  \lV \mf{A} \rV_p = \max_{\mf{x}} \frac{\lV \mf{A}\mf{x}\rV_p}{\lV \mf{x}\rV_p} = \max_{\lV\mf{x}\rV_p = 1} {\lV \mf{A}\mf{x}\rV_p} \]
-
 \end{itemize}
 \end{frame}
 
@@ -342,5 +332,4 @@ Consider a matrix $\mf{A} = \bmx 1 & 1 \\ 0 & 1\emx = \bmx \mf{a}_1 & \mf{a}_2\e
 \end{center}
 \end{frame}
 
-
- \end{document}
+\end{document}
