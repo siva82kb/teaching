@@ -12,229 +12,15 @@
 	"buffers":
 	[
 		{
-			"file": "tutorials/03-04_gst-sampling/tutorial-gst-st.tex",
+			"file": "lectures/06-systems/systems.tex",
 			"settings":
 			{
-				"buffer_size": 3444,
+				"buffer_size": 10457,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			},
 			"undo_stack":
 			[
-			]
-		},
-		{
-			"file": "assignment/02-signals/signals.tex",
-			"settings":
-			{
-				"buffer_size": 3117,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			},
-			"undo_stack":
-			[
-				[
-					5,
-					1,
-					"insert",
-					{
-						"characters": "\n\n"
-					},
-					"BQAAAHwKAAAAAAAAfQoAAAAAAAAAAAAAfQoAAAAAAACFCgAAAAAAAAAAAACFCgAAAAAAAIYKAAAAAAAAAAAAAIYKAAAAAAAAjgoAAAAAAAAAAAAAfQoAAAAAAAB9CgAAAAAAAAgAAAAgICAgICAgIA",
-					"AQAAAAAAAAABAAAAfAoAAAAAAAB8CgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					6,
-					1,
-					"paste",
-					null,
-					"AQAAAIYKAAAAAAAAqwsAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAhgoAAAAAAACGCgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					8,
-					1,
-					"indent",
-					null,
-					"BQAAADILAAAAAAAANgsAAAAAAAAAAAAATAsAAAAAAABQCwAAAAAAAAAAAABrCwAAAAAAAG8LAAAAAAAAAAAAAIoLAAAAAAAAjgsAAAAAAAAAAAAAqAsAAAAAAACsCwAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAqwsAAAAAAABFCwAAAAAAAAAAAAAAwFxA"
-				],
-				[
-					11,
-					1,
-					"insert",
-					{
-						"characters": "]"
-					},
-					"AQAAAIYKAAAAAAAAhwoAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAhgoAAAAAAACGCgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					12,
-					1,
-					"left_delete",
-					null,
-					"AQAAAIYKAAAAAAAAhgoAAAAAAAABAAAAXQ",
-					"AQAAAAAAAAABAAAAhwoAAAAAAACHCgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					13,
-					1,
-					"insert",
-					{
-						"characters": "\\item"
-					},
-					"BQAAAIYKAAAAAAAAhwoAAAAAAAAAAAAAhwoAAAAAAACICgAAAAAAAAAAAACICgAAAAAAAIkKAAAAAAAAAAAAAIkKAAAAAAAAigoAAAAAAAAAAAAAigoAAAAAAACLCgAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAhgoAAAAAAACGCgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					14,
-					1,
-					"insert",
-					{
-						"characters": " "
-					},
-					"AQAAAIsKAAAAAAAAjAoAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAiwoAAAAAAACLCgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					17,
-					1,
-					"insert",
-					{
-						"characters": "\n\\item"
-					},
-					"BwAAAK0LAAAAAAAArgsAAAAAAAAAAAAArgsAAAAAAAC6CwAAAAAAAAAAAAC6CwAAAAAAALsLAAAAAAAAAAAAALsLAAAAAAAAvAsAAAAAAAAAAAAAvAsAAAAAAAC9CwAAAAAAAAAAAAC9CwAAAAAAAL4LAAAAAAAAAAAAAL4LAAAAAAAAvwsAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAArQsAAAAAAACtCwAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					18,
-					1,
-					"insert",
-					{
-						"characters": " "
-					},
-					"AQAAAL8LAAAAAAAAwAsAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAvwsAAAAAAAC/CwAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					19,
-					1,
-					"insert_snippet",
-					{
-						"contents": "\\$$0\\$"
-					},
-					"AQAAAMALAAAAAAAAwgsAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAwAsAAAAAAADACwAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					20,
-					1,
-					"insert",
-					{
-						"characters": "F_s"
-					},
-					"AwAAAMELAAAAAAAAwgsAAAAAAAAAAAAAwgsAAAAAAADDCwAAAAAAAAAAAADDCwAAAAAAAMQLAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAwQsAAAAAAADBCwAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					22,
-					1,
-					"insert",
-					{
-						"characters": " ="
-					},
-					"AgAAAMQLAAAAAAAAxQsAAAAAAAAAAAAAxQsAAAAAAADGCwAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAxAsAAAAAAADECwAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					23,
-					1,
-					"insert",
-					{
-						"characters": " \\sqrt{"
-					},
-					"BwAAAMYLAAAAAAAAxwsAAAAAAAAAAAAAxwsAAAAAAADICwAAAAAAAAAAAADICwAAAAAAAMkLAAAAAAAAAAAAAMkLAAAAAAAAygsAAAAAAAAAAAAAygsAAAAAAADLCwAAAAAAAAAAAADLCwAAAAAAAMwLAAAAAAAAAAAAAMwLAAAAAAAAzQsAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAxgsAAAAAAADGCwAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					24,
-					1,
-					"insert",
-					{
-						"characters": "r"
-					},
-					"AQAAAM0LAAAAAAAAzgsAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAzQsAAAAAAADNCwAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					25,
-					1,
-					"left_delete",
-					null,
-					"AQAAAM0LAAAAAAAAzQsAAAAAAAABAAAAcg",
-					"AQAAAAAAAAABAAAAzgsAAAAAAADOCwAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					26,
-					1,
-					"insert",
-					{
-						"characters": "e}"
-					},
-					"AgAAAM0LAAAAAAAAzgsAAAAAAAAAAAAAzgsAAAAAAADPCwAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAzQsAAAAAAADNCwAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					27,
-					1,
-					"insert",
-					{
-						"characters": " Hz"
-					},
-					"AwAAAM8LAAAAAAAA0AsAAAAAAAAAAAAA0AsAAAAAAADRCwAAAAAAAAAAAADRCwAAAAAAANILAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAzwsAAAAAAADPCwAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					33,
-					1,
-					"insert",
-					{
-						"characters": "2"
-					},
-					"AgAAAM0LAAAAAAAAzgsAAAAAAAAAAAAAzgsAAAAAAADOCwAAAAAAAAEAAABl",
-					"AQAAAAAAAAABAAAAzgsAAAAAAADNCwAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					36,
-					1,
-					"insert",
-					{
-						"characters": " "
-					},
-					"AQAAAKoLAAAAAAAAqwsAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAqgsAAAAAAACqCwAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					38,
-					1,
-					"insert",
-					{
-						"characters": " "
-					},
-					"AQAAAIwLAAAAAAAAjQsAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAjAsAAAAAAACMCwAAAAAAAAAAAAAAYGRA"
-				],
-				[
-					41,
-					1,
-					"insert",
-					{
-						"characters": " "
-					},
-					"AQAAAG0LAAAAAAAAbgsAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAbQsAAAAAAABtCwAAAAAAAAAAAAAAAPC/"
-				]
 			]
 		}
 	],
@@ -336,11 +122,11 @@
 	],
 	"file_history":
 	[
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/intro_to_dsp/tutorials/03-04_gst-sampling/tutorial-gst-st.tex",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/intro_to_dsp/assignment/02-signals/signals.tex",
 		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/intro_to_dsp/lectures/06-systems/systems.tex",
 		"/D/work/OneDrive/OneDrive - Christian Medical College/temp/temp/lecture.tex",
-		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/intro_to_dsp/tutorials/03-04_gst-sampling/tutorial-gst-st.tex",
 		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/intro_to_dsp/lectures/05-samplingtheorem/samplingtheorem.tex",
-		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/intro_to_dsp/assignment/02-signals/signals.tex",
 		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/intro_to_dsp/tutorials/02-signals/tutorial-signals.tex",
 		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/intro_to_dsp/lectures/04-geometricsignaltheory/geometricsignaltheory.tex",
 		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/intro_to_dsp/lectures/_misc/lecture_3/lecture_3.tex",
@@ -440,61 +226,30 @@
 			[
 				{
 					"buffer": 0,
-					"file": "tutorials/03-04_gst-sampling/tutorial-gst-st.tex",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3444,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3091,
-								3091
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 585.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"stack_multiselect": false,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "assignment/02-signals/signals.tex",
+					"file": "lectures/06-systems/systems.tex",
 					"selected": true,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3117,
+						"buffer_size": 10457,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2174,
-								2174
+								8621,
+								8621
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage",
-							"tab_size": 4,
+							"syntax": "Packages/LaTeXing/support/LaTeX Beamer.tmLanguage",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 624.0,
+						"translation.y": 3778.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
