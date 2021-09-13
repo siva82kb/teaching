@@ -236,29 +236,29 @@ $\left\{\mf{v}_1, \mf{v}_2\right\}$, $\left\{\mf{u}_1, \mf{u}_2\right\}$ and $\l
 \end{frame}
 
 
-% \begin{frame}[t]{Matrix Inverse}
-% \begin{itemize}
-%     \item Consider the equation $\mf{Ax} = \mf{y}$, where $\mf{A} \in \mb{R}^{n \times n}$ and $\mf{x}, \mf{y} \in \mb{R}^n$. 
+\begin{frame}[t]{Matrix Inverse}
+\begin{itemize}
+    \item Consider the equation $\mf{Ax} = \mf{y}$, where $\mf{A} \in \mb{R}^{n \times n}$ and $\mf{x}, \mf{y} \in \mb{R}^n$. 
 
-%     \item Let us assume $\mf{A}$ is non-singular $\implies$ columns of $\mf{A}$ represent a basis for $\mb{R}^n$.
+    \item Let us assume $\mf{A}$ is non-singular $\implies$ columns of $\mf{A}$ represent a basis for $\mb{R}^n$.
 
-%     \item What does $\mf{x}$ represent? It is the representation of $\mf{y}$ in the basis consisitng of the columns of $\mf{A}$.
-%     \[ \mf{y} = \mf{Ax} = \begin{bmatrix*}\mf{a}_1 & \mf{a}_2 & \ldots & \mf{a}_n\end{bmatrix*}\begin{bmatrix*}x_1 \\ x_2 \\ \vdots \\ x_n\end{bmatrix*} = \sum_{i=1}^{n}\mf{a}_i x_i  \,\, \implies \,\, \mf{x} = \mf{A}^{-1}\mf{y} = \begin{bmatrix*}\tilde{\mf{b}}_1^T \\ \tilde{\mf{b}}_2^T \\ \ldots \\ \tilde{\mf{b}}_n^T\end{bmatrix*}\mf{y} = \begin{bmatrix*}\tilde{\mf{b}}_1^T\mf{y} \\ \tilde{\mf{b}}_2^T\mf{y} \\ \ldots \\ \tilde{\mf{b}}_n^T\mf{y}\end{bmatrix*} \]
-% \end{itemize}
-% \end{frame}
+    \item What does $\mf{x}$ represent? It is the representation of $\mf{y}$ in the basis consisitng of the columns of $\mf{A}$.
+    \[ \mf{y} = \mf{Ax} = \begin{bmatrix*}\mf{a}_1 & \mf{a}_2 & \ldots & \mf{a}_n\end{bmatrix*}\begin{bmatrix*}x_1 \\ x_2 \\ \vdots \\ x_n\end{bmatrix*} = \sum_{i=1}^{n}\mf{a}_i x_i  \,\, \implies \,\, \mf{x} = \mf{A}^{-1}\mf{y} = \begin{bmatrix*}\tilde{\mf{b}}_1^T \\ \tilde{\mf{b}}_2^T \\ \ldots \\ \tilde{\mf{b}}_n^T\end{bmatrix*}\mf{y} = \begin{bmatrix*}\tilde{\mf{b}}_1^T\mf{y} \\ \tilde{\mf{b}}_2^T\mf{y} \\ \ldots \\ \tilde{\mf{b}}_n^T\mf{y}\end{bmatrix*} \]
+\end{itemize}
+\end{frame}
 
-% \begin{frame}[t]{Matrix Inverse}
-% \begin{itemize}
-%     \item $\mf{A}^{-1}$ is a matrix that allows change of basis to the columns of $\mf{A}$ from the standard basis!
-% \end{itemize}3
-% \vspace{1cm}
+\begin{frame}[t]{Matrix Inverse}
+\begin{itemize}
+    \item $\mf{A}^{-1}$ is a matrix that allows change of basis to the columns of $\mf{A}$ from the standard basis!
+\end{itemize}
+\vspace{1cm}
 
-% \begin{color}{blue}
-%     $\bullet$ $W = \lc \begin{bmatrix*}[r]1\\1\end{bmatrix*}, \begin{bmatrix*}[r]-1\\\frac{1}{2}\end{bmatrix*} \rc$. Find $\mf{b}_W$ by calculating the inverse of the matrix $\mf{W} = \begin{bmatrix*}[r]1 & -1\\1 & \frac{1}{2}\end{bmatrix*}$.\\ \vspace{0.2cm}
+\begin{color}{blue}
+    $\bullet$ $W = \lc \begin{bmatrix*}[r]1\\1\end{bmatrix*}, \begin{bmatrix*}[r]-1\\\frac{1}{2}\end{bmatrix*} \rc$. Find $\mf{b}_W$ by calculating the inverse of the matrix $\mf{W} = \begin{bmatrix*}[r]1 & -1\\1 & \frac{1}{2}\end{bmatrix*}$.\\ \vspace{0.2cm}
 
-%     $\bullet$ What about $V = \lc \begin{bmatrix*}[r]\sfrac{1}{\sqrt{5}}\\\sfrac{2}{\sqrt{5}}\end{bmatrix*}, \begin{bmatrix*}[r]-\sfrac{2}{\sqrt{5}}\\\sfrac{1}{\sqrt{5}}\end{bmatrix*} \rc$. What is $\mf{b}_V$?
-% \end{color}
-% \end{frame}
+    $\bullet$ What about $V = \lc \begin{bmatrix*}[r]\sfrac{1}{\sqrt{5}}\\\sfrac{2}{\sqrt{5}}\end{bmatrix*}, \begin{bmatrix*}[r]-\sfrac{2}{\sqrt{5}}\\\sfrac{1}{\sqrt{5}}\end{bmatrix*} \rc$. What is $\mf{b}_V$?
+\end{color}
+\end{frame}
 
 
 % \begin{frame}[t]{Matrix Inverse}
