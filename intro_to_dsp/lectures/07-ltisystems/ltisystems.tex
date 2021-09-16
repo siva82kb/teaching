@@ -90,6 +90,7 @@
 
 \def\mf{\ensuremath\mathbf}
 \def\mb{\ensuremath\mathbb}
+\def\mc{\ensuremath\mathcal}
 \def\lp{\ensuremath\left(}
 \def\rp{\ensuremath\right)}
 \def\lv{\ensuremath\left\lvert}
@@ -254,215 +255,148 @@ y[n] &= x[n] * h[n] = \sum_k x[k] \cdot h[n - k] \\
      &\quad \quad \,\,\, + h[-1] \cdot x[n + 1] + h[-2] \cdot x[n + 2] + \cdots
 \end{split}
 \]
+\end{frame}
+
+\begin{frame}[t]{Properties of convolution sum}
+\begin{itemize}
+  \item \textbf{Commutative}
+  \[ x_1[n] * x_2[n] = x_2[n] * x_1[n] \]
+  \item \textbf{Associative}
+  \[ x_1[n] * \lp x_2[n] * x_3[n]\rp = \lp x_1[n] * x_2[n]\rp * x_3[n] \]
+  \item \textbf{Distributive}
+  \[ x_1[n] * \lp x_2[n] + x_3[n]\rp = x_1[n] * x_2[n] + x_1[n] * x_3[n] \]
+  \item \textbf{Multiplicative identity}
+  \[ x_1[n] * \delta[n] = x_1[n] \]
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[t]{Impulse response, causality, and stability}
+Let $h[n]$ be the impulse response of and LTI system $\mc{H}$. \vspace{0.5cm}
+
+\begin{itemize}
+  \item \textbf{Causaility}. The LTI system $\mc{H}$ is causal, if and only if,
+  \[ h[n] = 0, \,\, \forall n < 0 \]
+  \item \textbf{Stability}. The LTI system $\mc{H}$ is stable, if and only if,
+  \[ \sum_{k=-\infty}^{\infty} \vert h[k] \vert < \infty \]
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}[t]{Interconnection of LTI systems}
+
+\begin{figure}
+\includegraphics[width=0.5\textwidth]{img/connections.png}
+\end{figure}
 
 \end{frame}
 
-% \begin{frame}{What is a system?}
-% \begin{figure}
-% \includegraphics[width=0.6\textwidth]{img/system.png}
-% \end{figure}
-% Can be thought of a mapping function. \textit{e.g.}
-% \[ y[n] = \mathcal{H}\left(x[n]\right) \]
-% \end{frame}
+\begin{frame}[t]{Finite and Infinite Impulse Response system}
 
-% % OPERATIONS ON SIGNALS
-% \begin{frame}[t]{Operations on signals}
+Discrete-time LTI systems can be classified into two types based on the duration of the impulse response:
+\begin{itemize}
+  \item \textbf{Finite Impulse Response (FIR) system}. $h[n]$ is non-zero only for a finite duration of time, and it is uniformly zero outside this finite duration.
+  \[ h[n] = 0, \,\, n < M_1 \,\, \text{and} \,\, n > M_2 \implies y[n] = \sum_{k=M_1}^{M_2} h[k]x[n-k] \]
+\end{itemize}
 
-% \begin{columns}[t]
-%   \begin{column}{.45\linewidth}
-%   \textbf{Operations on the dependent variable}
-%   \begin{itemize}
-%     \item \textbf{Scaling}: $y\ls n \rs = a \cdot x\ls n \rs$
-%     \item \textbf{Addition}: $y\ls n \rs = x_1\ls n \rs + x_2\ls n \rs$
-%   \end{itemize}
-%   \end{column}
+Causality? \vspace{0.5cm}
 
-%   \begin{column}{.48\linewidth}
-%   \textbf{Operations on the independent variable}
-%   \begin{itemize}
-%     \item \textbf{Time shifting}: $y\ls n \rs = x \ls n - k \rs, k \in \mathbb{Z}$
-%     \item \textbf{Time reversal}: $y\ls n \rs = x \ls -n \rs, k \in \mathbb{Z}$
-%   \end{itemize}
-%   \end{column}
-% \end{columns}
+Stability?
 
-% \end{frame}
+How would be implement this system?
 
-% % TIME SHIFTING
-% \begin{frame}{Operation on the independent variable: \textbf{Time shifting}}
-
-% Consider $x\ls n \rs$ shown below,
-
-% \begin{figure}
-% \includegraphics[width=\textwidth]{img/discsig.eps}
-% \end{figure}
-
-% What does $x\ls n - 3\rs$ look like?
-% \end{frame}
-
-% % TIME SHIFTING
-% \begin{frame}{Operation on the independent variable: \textbf{Time shifting}}
-
-% $x\ls n - 3\rs$ 
-
-% \begin{figure}
-% \includegraphics[width=\textwidth]{img/discsig-shift.eps}
-% \end{figure}
-
-% What about $x\ls n + 2\rs$?
-
-% \end{frame}
-
-% % TIME SHIFTING
-% \begin{frame}{Operation on the independent variable: \textbf{Time shifting}}
-
-% $x\ls n + 2 \rs$ 
-
-% \begin{figure}
-% \includegraphics[width=\textwidth]{img/discsig-shift2.eps}
-% \end{figure}
-
-% \end{frame}
-
-% % TIME Reversal
-% \begin{frame}{Operation on the independent variable: \textbf{Time reversal}}
-
-% $x\ls -n \rs$ 
-
-% \begin{figure}
-% \includegraphics[width=\textwidth]{img/discsig-inv.eps}
-% \end{figure}
-
-% And $x\ls -n\rs$?
-
-% \end{frame}
+\end{frame}
 
 
-% \begin{frame}{Classification of systems}
+\begin{frame}[t]{Finite and Infinite Impulse Response system}
 
-% Based on the properties of the system.
+Discrte-time LTI system can be classified into two types of system based on the duration of the impulse response:
+\begin{itemize}
+  \item \textbf{Infinite Impulse Response (IIR) system}. $h[n]$ is of infinitely long  duration.,
+  \[  y[n] = \sum_{k=-\infty}^{\infty} h[k]x[n-k] \]
+\end{itemize}
 
-% \begin{itemize}
-% \item \textbf{Linearity}: \textit{satisfies the properties of \textbf{scaling} and \textbf{superposition}}.
+Causality? \vspace{0.5cm}
 
-% Let us assume, 
-% \[ \mathcal{H}: x_i\ls n \rs \mapsto y_i\ls n \rs \]
+Stability?
 
-% The system $\mathcal{H}$ is linear, if and only if,
-% \[ \mathcal{H}:\sum_ia_ix_i\ls n \rs \mapsto \sum_ia_iy_i\ls n \rs \]
+How would be implement this system?
 
-% \textit{Which of these systems are linear?}
-% \begin{enumerate}
-% \item $y\ls n \rs = k_1x\ls n \rs + k_2x\ls t-2 \rs$
-% \item $y\ls n \rs = \sum_{k=n-N}^{n}x \ls k \rs $
-% \item $y\ls n \rs = 0.5x\ls n \rs + 1.5$
-% \end{enumerate}
-% \end{itemize}
-% \end{frame}
+\end{frame}
 
-% % CLASSIFICATION OF SYSTEMS
-% \begin{frame}[t]{Classification of systems}
+\begin{frame}[t]{Linear, constant-coefficient difference equations}
+Consider the following system,
+\[ y[n] = \sum_{k=0}^{\infty} x[n-k] \]
 
-% % Based on the properties of the system.
+This system has a simple recursive form,
+\[ y[n] = y[n-1] + x[n] \]
+\end{frame}
 
-% \begin{itemize}
-% \item \textbf{Memory}: \textit{a system whose output depends on past or future values of its input is a system with memory, else the system is memoryless}. 
+\begin{frame}[t]{Linear, constant-coefficient difference equations}
+A class of IIR systems can be expressed in recursive form through linear, constant coefficient difference equations,
+\[ y[n] = -\sum_{k=1}^n a_k \cdot y[n - k] + \sum_{k=0}^{m} b_k \cdot x[n-k] \]
 
-% Note: the system may or may not depends on its present.
+This allows us to implement such a system.
+\end{frame}
 
-% \[ \begin{cases}
-% y\ls n \rs = 0.5x\ls n \rs & \mathrm{\textbf{Memoryless system}} \\
-% y\ls n \rs = \sum_{k=m_1}^{m_2} x\ls n - k\rs & \mathrm{\textbf{System with memory}}
-% \end{cases}
-% \]
-% \end{itemize}
+\begin{frame}[t]{Linear, constant-coefficient difference equations}
+A class of IIR systems can be expressed in recursive form through linear, constant coefficient difference equations,
+\[ y[n] = -\sum_{k=1}^N a_k \cdot y[n - k] + \sum_{k=0}^{M} b_k \cdot x[n-k] \]
 
-% \end{frame}
+This allows us to implement such a system.
+\end{frame}
 
-% % CLASSIFICATION OF SYSTEMS
-% \begin{frame}[t]{Classification of systems}
+\begin{frame}[t]{Linear, constant-coefficient difference equations}
+Find the output of the system for $n \geq 0$ for the input $x[n] = u[n]$.
+\[ y[n] = a_1 \cdot y[n - 1] + x[n] \]
+\end{frame}
 
-% \begin{figure}
-% \includegraphics[width=\textwidth]{img/memory.eps}
-% \end{figure}
-% \end{frame}
+\begin{frame}[t]{Zero state and Zeo Input Responses of LTI system}
+\[ y[n] = a_1 \cdot y[n - 1] + x[n] \longrightarrow \]
 
-% % CLASSIFICATION OF SYSTEMS
-% \begin{frame}[t]{Classification of systems}
-
-% \begin{itemize}
-% \item \textbf{Causality}: \textit{a system whose output depends on the past and present only values of the input is a causal system}.
-% \end{itemize}
-% \end{frame}
-
-% % CLASSIFICATION OF SYSTEMS
-% \begin{frame}[t]{Classification of systems}
-% \textbf{Causality}
-
-% \begin{figure}
-% \includegraphics[width=\textwidth]{img/non-causal.eps}
-% \end{figure}
-% \end{frame}
-
-% % CLASSIFICATION OF SYSTEMS
-% \begin{frame}[t]{Classification of systems}
-
-% \begin{itemize}
-% \item \textbf{Time invariance}: \textit{system remains the same with time}.
-
-% If a system is time-invariant, then
-% \[ \mathcal{H}: x\ls n\rs \mapsto y\ls n\rs \iff f:x\ls n-k\rs \mapsto y\ls n-k\rs \]
-
-% \end{itemize}
-% \end{frame}
+\textbf{Zero state response:} \vspace{2cm}
 
 
-% % CLASSIFICATION OF SYSTEMS
-% \begin{frame}[t]{Classification of systems}
+\textbf{Zero state response:} \vspace{2cm}
+\end{frame}
 
-% \begin{columns}[t]
-%   \begin{column}{.45\linewidth}
-%   \begin{figure}
-%   \includegraphics[width=\textwidth]{img/timeinvar1.eps}
-%   \end{figure}
-%   \end{column}
+\begin{frame}[t]{Linearity of a general recursive LTI system}
+\[ y[n] = -\sum_{k=1}^N a_k \cdot y[n - k] + \sum_{k=0}^{M} b_k \cdot x[n-k] \]
+\begin{enumerate}
+  \item The total system response is the sum of the \textit{zero state} response and \textit{zero input} responses.
+  \item The \textit{zero state} response satisfies the property of scaling and superposition.
+  \item The \textit{zero input} response satisfies the property of scaling and superposition.
+\end{enumerate}
+\end{frame}
 
-%   \begin{column}{.45\linewidth}
-%   \begin{figure}
-%   \includegraphics[width=\textwidth]{img/timeinvar2.eps}
-%   \end{figure}
-%   \end{column}
-% \end{columns}
-% \end{frame}
+\begin{frame}[t]{Solution of linear constant coefficient difference equations}
+\[ y[n] = -\sum_{k=1}^n a_k \cdot y[n - k] + \sum_{k=0}^{m} b_k \cdot x[n-k] \]
+The general solution is given by (assuming the input is applied at time $n = 0$),
+\[ y[n] = y_{h}[n] + y_p[n] \]
+\begin{itemize}
+  \item  $y_h[n]$ is the homogenous solution, i.e. the solution when the input is $0$.
+  \item  $y_p[n]$ is the particular solution, i.e. the solution for the given input $x[n]$.
+\end{itemize}
+\end{frame}
 
+\begin{frame}[t]{Homogenous Solution}
+This is the solution to the following equation,
+\[ y[n] + \sum_{k=1}^N a_k \cdot y[n - k] = 0\]
+We are interested in the solution starting at $n=0$ with the initial conditions $\lc y[-1], y[-2], y[-3], \ldots, y[-N+1]\rc$.
 
-% % CLASSIFICATION OF SYSTEMS
-% \begin{frame}[t]{Classification of systems}
+\vspace{0.5cm} 
 
-% \begin{columns}[t]
-%   \begin{column}{.45\linewidth}
-%   \begin{figure}
-%   \includegraphics[width=\textwidth]{img/timevar1.eps}
-%   \end{figure}
-%   \end{column}
+We first replace the term $y[n-k]$ to $z^{n-k}$, resulting in the following equation,
+\[ z^n + \sum_{k=1}^N a_k \cdot z^{n - k} = 0 \implies z^N + a_1z^{N-1} + a_2z^{N-2} + \cdots + a_N = 0 \] 
+\end{frame}
 
-%   \begin{column}{.45\linewidth}
-%   \begin{figure}
-%   \includegraphics[width=\textwidth]{img/timevar2.eps}
-%   \end{figure}
-%   \end{column}
-% \end{columns}
-% \end{frame}
+\begin{frame}[t]{Solution of linear constant coefficient difference equations}
+\[ z^n + \sum_{k=1}^N a_k \cdot z^{n - k} = 0 \implies z^N + a_1z^{N-1} + a_2z^{N-2} + \cdots + a_N = 0 \]
 
+Let $\lc \lamba_i \rc_{i=1}^N$ be the roots of the above polynominal equations, assuming there are $N$ distinct roots. Then, the homogenous solution has the following form,
+\[ y_h[n] = C_1 \lambda_1^n + C_2 \lambda_2^n + C_3 \lambda_3^n + \ldots + C_N \lambda_N^n , \,\,\ n \geq 0 \]
 
-% % CLASSIFICATION OF SYSTEMS
-% \begin{frame}[t]{Classification of systems}
-
-% \begin{itemize}
-% \item \textbf{Stability}: \textit{bounded input produces bounded output}.
-
-% \[ \left|x\ls n \rs\right| < M_x < \infty \mapsto \left|y\ls n \rs\right| < M_y < \infty \]
-% \end{itemize}
-% \end{frame}
+\end{frame}
 
 \end{document}
