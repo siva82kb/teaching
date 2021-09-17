@@ -391,6 +391,7 @@ We first replace the term $y[n-k]$ to $z^{n-k}$, resulting in the following equa
 \[ z^n + \sum_{k=1}^N a_k \cdot z^{n - k} = 0 \implies z^N + a_1z^{N-1} + a_2z^{N-2} + \cdots + a_N = 0 \] 
 \end{frame}
 
+
 \begin{frame}[t]{Homogenous Solution}
 \[ z^n + \sum_{k=1}^N a_k \cdot z^{n - k} = 0 \implies z^N + a_1z^{N-1} + a_2z^{N-2} + \cdots + a_N = 0 \]
 
@@ -399,6 +400,16 @@ Let $\lc \lambda_i \rc_{i=1}^N$ be the roots of the above polynominal equations,
 
 The initial conditions can be used to solve for the constants $C_i$.
 \end{frame}
+
+
+\begin{frame}[t]{Homogenous Solution}
+\[ z^n + \sum_{k=1}^N a_k \cdot z^{n - k} = 0 \implies z^N + a_1z^{N-1} + a_2z^{N-2} + \cdots + a_N = 0 \]
+
+Let $\lambda_1$ by repeated $m$ times, then the homogenous solution has the following form,
+\[ y_h[n] = \sum_{i=0}^{m-1} C_i n^i \lambda_1^n + \sum_{i=m+1}^N C_i \lambda_i^n , \,\,\ n \geq 0 \]
+
+\end{frame}
+
 
 \begin{frame}[t]{Particular Solution}
 The particular solution $y_p[n]$ satisfies the following equation,
@@ -439,6 +450,7 @@ Find the output of the LTI system described by the following equation,.
 \begin{frame}[t]{Example}
 \end{frame}
 
+
 \begin{frame}[t]{Impulse response of a Linear Time-invariant Recursive system}
 \[ y[n] = -\sum_{k=1}^N a_k \cdot y[n - k] + \sum_{k=0}^{M} b_k \cdot x[n-k] \]
 
@@ -451,9 +463,33 @@ Find the impulse response of the following system,
 \end{frame}
 
 
+\begin{frame}[t]{}
+\end{frame}
+
+
 \begin{frame}[t]{Impulse response of a Linear Time-invariant Recursive system}
 \[ y[n] = -\sum_{k=1}^N a_k \cdot y[n - k] + \sum_{k=0}^{M} b_k \cdot x[n-k] \]
 
-Relationship to the homogenous solution.
+The impulse response has the general form,
+\[ h[n] = \sum_{i=1}^{N} C_i \lambda_i^n \]
+
+We solve for $C_i$ assuming zero initial conditions, $y[-1] = y[-2] = \cdots = y[-N+1] = 0$. \vspace{0.5cm}
+
+The impulse response will be equal to the homogenous solution from $n = M + 1$, with the initial conditions $y[n-M], y[n-M-1], y[n-M-2], \ldots , y[n-M-N+1]$.
+\end{frame}
+
+
+\begin{frame}[t]{}
+\end{frame}
+
+
+\begin{frame}[t]{Exponential inputs to an LTI system}
+Consider the following LTI system,
+\[ y[n] = \sum_{k=-\infty}^\infty h[k] x[n-k] \]
+
+If we apply an input $x[n] = z^n$, then we get
+\[ y[n] = \sum_{k=-\infty}^\infty h[k] z^{n-k} = \lp \sum_{k=-\infty}^\infty h[k] z^{-k} \rp z^n = H\lp z \rp z^n \]
+\end{frame}
+
 
 \end{document}
