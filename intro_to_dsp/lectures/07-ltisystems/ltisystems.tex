@@ -391,12 +391,69 @@ We first replace the term $y[n-k]$ to $z^{n-k}$, resulting in the following equa
 \[ z^n + \sum_{k=1}^N a_k \cdot z^{n - k} = 0 \implies z^N + a_1z^{N-1} + a_2z^{N-2} + \cdots + a_N = 0 \] 
 \end{frame}
 
-\begin{frame}[t]{Solution of linear constant coefficient difference equations}
+\begin{frame}[t]{Homogenous Solution}
 \[ z^n + \sum_{k=1}^N a_k \cdot z^{n - k} = 0 \implies z^N + a_1z^{N-1} + a_2z^{N-2} + \cdots + a_N = 0 \]
 
-Let $\lc \lamba_i \rc_{i=1}^N$ be the roots of the above polynominal equations, assuming there are $N$ distinct roots. Then, the homogenous solution has the following form,
+Let $\lc \lambda_i \rc_{i=1}^N$ be the roots of the above polynominal equations, assuming there are $N$ distinct roots. Then, the homogenous solution has the following form,
 \[ y_h[n] = C_1 \lambda_1^n + C_2 \lambda_2^n + C_3 \lambda_3^n + \ldots + C_N \lambda_N^n , \,\,\ n \geq 0 \]
 
+The initial conditions can be used to solve for the constants $C_i$.
 \end{frame}
+
+\begin{frame}[t]{Particular Solution}
+The particular solution $y_p[n]$ satisfies the following equation,
+\[ y_p[n] + \sum_{k=1}^N a_k \cdot y_p[n - k] = \sum_{k=0}^{m} b_k \cdot x[n-k] \]
+
+Based on the type of the input, we assume a particular form for the particular solution and solve for the constants in this solution to obtain the exact $y_p[n]$.
+
+\begin{table}[]
+\begin{tabular}{|c|c|}
+\hline
+Input Signal & Particular Solution \\ \hline
+$A$ & $K$ \\ \hline
+$u[n]$ & $K\cdot u[n]$\\ \hline
+$\alpha^n$ & $K\cdot \alpha^n$\\ \hline
+$n^p$ & $\sum_{i=0}^p K_i n^i$\\ \hline
+$\cos \Omega n, \sin \Omega n$ & $K_1\cos \Omega n + K_2\sin \Omega n$\\ \hline
+\end{tabular}
+\end{table}
+\end{frame}
+
+
+\begin{frame}[t]{Example}
+Find the output of the LTI system described by the following equation,.
+\[ y[n] + 0.5 y[n-1] = x[n]; \quad x[n] = u[n], y[-1] = -2 \]
+\end{frame}
+
+
+\begin{frame}[t]{Example}
+\end{frame}
+
+
+\begin{frame}[t]{Example}
+Find the output of the LTI system described by the following equation,.
+\[ y[n] + y[n-1] -2 y[n-2] = x[n]; \quad x[n] = 0.1^n, y[-1] = 1, y[-2] = -1 \]
+\end{frame}
+
+
+\begin{frame}[t]{Example}
+\end{frame}
+
+\begin{frame}[t]{Impulse response of a Linear Time-invariant Recursive system}
+\[ y[n] = -\sum_{k=1}^N a_k \cdot y[n - k] + \sum_{k=0}^{M} b_k \cdot x[n-k] \]
+
+Impulse response is the \textit{zero state} response for the input $\delta[n]$. 
+
+\vspace{0.5cm}
+Find the impulse response of the following system,
+\[ y[n] + 0.5 y[n-1] = x[n] + 2x[n-1] \]
+\[ y[n] + y[n-1] - 2 y[n-2] = x[n] - x[n-1] \]
+\end{frame}
+
+
+\begin{frame}[t]{Impulse response of a Linear Time-invariant Recursive system}
+\[ y[n] = -\sum_{k=1}^N a_k \cdot y[n - k] + \sum_{k=0}^{M} b_k \cdot x[n-k] \]
+
+Relationship to the homogenous solution.
 
 \end{document}
