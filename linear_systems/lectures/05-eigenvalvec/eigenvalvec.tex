@@ -246,17 +246,17 @@
 
 \begin{frame}[t]{Linear transformation in different basis}
 \begin{itemize}
-    \item Consider a basis $V=\left\{\mf{v}_i\right\}_{i=1}^{n}$ for $\mb{R}^n$. Let $\mf{x} = \begin{bmatrix*}x_1 & x_2 & \ldots & x_n\end{bmatrix*}^T \in \mb{R}^n$ be the representation of $\mf{x}$ in 
+    \item Consider a basis $V=\left\{\mf{v}_i\right\}_{i=1}^{n}$ for $\mb{R}^n$. Let $\mf{x} = \begin{bmatrix*}x_1 & x_2 & \ldots & x_n\end{bmatrix*}^\top \in \mb{R}^n$ be the representation of $\mf{x}$ in 
     the standard basis.
     
     Representation of $\mf{x}$ in $V$ is,
-    \[ \mf{x}_{V} = \sum_{i=1}^n x_{vi}\mf{v}_i, \,\,\, \mf{x}_V = \begin{bmatrix*}x_{v1} & x_{v2} & \ldots & x_{vn}\end{bmatrix*}^T \]
+    \[ \mf{x}_{V} = \sum_{i=1}^n x_{vi}\mf{v}_i, \,\,\, \mf{x}_V = \begin{bmatrix*}x_{v1} & x_{v2} & \ldots & x_{vn}\end{bmatrix*}^\top \]
 
     \item We can go back and forth between these two representations in the following way,
     \[ \mf{x} = \mf{V}\mf{x}_V \,\,\, \text{ and } \,\,\, \mf{x}_V = \mf{V}^{-1}\mf{x}; \,\,\, \text{where, } \mf{V} = \begin{bmatrix*}\mf{v}_1 & \mf{v}_2 & \ldots & \mf{v}_n\end{bmatrix*} \]
 
     \item When $V$ is an orthonormal basis, then the algebra gets simpler,
-    \[ \mf{x} = \mf{V}\mf{x}_V \,\,\, \text{ and } \,\,\, \mf{x}_V = \mf{V}^T\mf{x} \]
+    \[ \mf{x} = \mf{V}\mf{x}_V \,\,\, \text{ and } \,\,\, \mf{x}_V = \mf{V}^\top\mf{x} \]
 
 \end{itemize}
 \end{frame}
@@ -264,17 +264,17 @@
 
 \begin{frame}[t]{Linear transformation in different basis}
 \begin{small}
-Consider a linear transformation $T: \mb{R}^2 \to \mb{R}^2$ represented by the matrix $\mf{A} = \begin{bmatrix*}[r]2 & 1\\-1 & 1\end{bmatrix*}$. Consider a vector $\mf{x} = \begin{bmatrix*}[r]3\\-1\end{bmatrix*}$. What is $\mf{y} = \mf{Ax}$?
+Consider a linear transformation $T: \mb{R}^2 \to \mb{R}^2$ represented by the matrix $\mf{A} = \begin{bmatrix*}[r]1 & 0\\-1 & 1\end{bmatrix*}$. Consider a vector $\mf{x} = \begin{bmatrix*}[r]2\\-1\end{bmatrix*}$. What is $\mf{y} = \mf{Ax}$?
 
-\[ \mf{y} = \mf{Ax} = \begin{bmatrix*}[r]2 & 1\\-1 & 1\end{bmatrix*}\begin{bmatrix*}[r]3\\-1\end{bmatrix*} = \begin{bmatrix*}[r]5\\-4\end{bmatrix*} \]
+\[ \mf{y} = \mf{Ax} = \begin{bmatrix*}[r]1 & 0\\-1 & 1\end{bmatrix*}\begin{bmatrix*}[r]2\\-1\end{bmatrix*} = \begin{bmatrix*}[r]2\\-3\end{bmatrix*} \]
 
-Now, consider a basis $V = \left\{\begin{bmatrix*}[r]1\\-1\end{bmatrix*}, \begin{bmatrix*}[r]2\\4\end{bmatrix*}\right\}$ for $\mb{R}^2$. The representation of $\mf{x}, \mf{y}$ in $V$ is, 
+Now, consider a basis $V = \left\{\begin{bmatrix*}[r]1\\-1\end{bmatrix*}, \begin{bmatrix*}[r]2\\1\end{bmatrix*}\right\}$ for $\mb{R}^2$. The representation of $\mf{x}, \mf{y}$ in $V$ is, 
 
-\[ \mf{x}_V = \mf{V}^{-1}\mf{x} = \frac{1}{6}\begin{bmatrix*}[r]4 & -2\\1 & 1\end{bmatrix*}\begin{bmatrix*}[r]3\\-1\end{bmatrix*} = \frac{1}{6}\begin{bmatrix*}[r]14\\2\end{bmatrix*}, \,\,\, \mf{y}_V = \frac{1}{6}\begin{bmatrix*}[r]28\\1\end{bmatrix*}\]
+\[ \mf{x}_V = \mf{V}^{-1}\mf{x} = \frac{1}{3}\begin{bmatrix*}[r]1 & -2\\1 & 1\end{bmatrix*}\begin{bmatrix*}[r]2\\-1\end{bmatrix*} = \frac{1}{3}\begin{bmatrix*}[r]4\\1\end{bmatrix*}, \,\,\, \mf{y}_V = \mf{V}^{-1}\mf{y} = \frac{1}{3}\begin{bmatrix*}[r]8\\-1\end{bmatrix*}\]
 
 Now, if we apply the linear transformation $T$ on $\mf{x}_V$ will we get $\mf{y}_V$?
 
-\[ \mf{A}\mf{x}_V = \begin{bmatrix*}[r]2 & 1\\-1 & 1\end{bmatrix*}\frac{1}{6}\begin{bmatrix*}[r]14\\2\end{bmatrix*} = \frac{1}{6}\begin{bmatrix*}[r]16\\-12\end{bmatrix*} \neq \mf{y}_V \]
+\[ \mf{A}\mf{x}_V = \begin{bmatrix*}[r]1 & 0\\-1 & 1\end{bmatrix*}\frac{1}{3}\begin{bmatrix*}[r]-4\\1\end{bmatrix*} = \frac{1}{3}\begin{bmatrix*}[r]-4\\5\end{bmatrix*} \neq \mf{y}_V \]
 
 \textbf{Representation of a linear transformation $T$ is basis dependent! }
 \end{small}
@@ -294,7 +294,7 @@ Now, if we apply the linear transformation $T$ on $\mf{x}_V$ will we get $\mf{y}
 
 \begin{frame}[t]{Similarity transformation}
 \begin{itemize}
-    \item Check if this works with the example in the previous slide. $\mf{A} = \begin{bmatrix*}[r]2 & 1\\-1 & 1\end{bmatrix*}$; $\mf{V} = \begin{bmatrix*}[r]1 & 2\\-1 & 4\end{bmatrix*}$. Determine $\mf{A}_V$ and check that $\mf{y}_V = \mf{A}_V\mf{x}_V$.
+    \item Check if this works with the example in the previous slide. $\mf{A} = \begin{bmatrix*}[r]1 & 0\\-1 & 1\end{bmatrix*}$; $\mf{V} = \begin{bmatrix*}[r]1 & 2\\-1 & 1\end{bmatrix*}$. Determine $\mf{A}_V$ and check that $\mf{y}_V = \mf{A}_V\mf{x}_V$.
 
 \end{itemize}
 \end{frame}
@@ -302,7 +302,7 @@ Now, if we apply the linear transformation $T$ on $\mf{x}_V$ will we get $\mf{y}
 
 \begin{frame}[t]{Similarity transformation}
 \begin{itemize}
-    \item A linear transformation $\hat{T}$ is represented as $\mf{A}_V$ in $V$. What is its representation in the standard basis? E.g.: $\mf{A}_V = \begin{bmatrix*}[r]-4 & 2\\3 & -5\end{bmatrix*}$; $\mf{V} = \frac{1}{\sqrt{2}}\begin{bmatrix*}[r]1 & 1\\-1 & 1\end{bmatrix*}$. Determine $\mf{A}$. If $\mf{x}_V = \bmx \frac{1}{2} & 2\emx^T$. What is $\mf{y}_V$ and $\mf{y}$?
+    \item A linear transformation $\hat{T}$ is represented as $\mf{A}_V$ in $V$. What is its representation in the standard basis? E.g.: $\mf{A}_V = \begin{bmatrix*}[r]-4 & 1\\1 & 2\end{bmatrix*}$; $\mf{V} = \frac{1}{\sqrt{2}}\begin{bmatrix*}[r]1 & 1\\-1 & 1\end{bmatrix*}$. Determine $\mf{A}$. If $\mf{x}_V = \bmx \frac{1}{2} & 2\emx^\top$. What is $\mf{y}_V$ and $\mf{y}$?
 \end{itemize}
 \end{frame}
 
@@ -316,7 +316,7 @@ Now, if we apply the linear transformation $T$ on $\mf{x}_V$ will we get $\mf{y}
 
     \item \textit{Similar} matrices represent the same linear transformation in different basis.
 
-    \item When $\mf{Q}$ is an orthogonal matrix, we have $\mf{B} = \mf{Q}^T\mf{A}\mf{Q}$. 
+    \item When $\mf{Q}$ is an orthogonal matrix, we have $\mf{B} = \mf{Q}^\top\mf{A}\mf{Q}$. 
 \end{itemize}
 \end{frame}
 
@@ -345,7 +345,7 @@ Now, if we apply the linear transformation $T$ on $\mf{x}_V$ will we get $\mf{y}
 
     \item Complex matrices have complex entries. $\mf{A} \in \mb{C}^{m \times n}$ such that $a_{ij} \in \mb{C}, \,\, \forall 1 \leq i \leq m, \,\, 1 \leq j \leq n$
 
-    \item The transpose operation is generalized to conjugate transpose known as the \textit{Hermitian}. $\mf{A}^H = \overline{\mf{A}}^T$.
+    \item The transpose operation is generalized to conjugate transpose known as the \textit{Hermitian}. $\mf{A}^H = \overline{\mf{A}}^\top$.
     
     \item The idea of symmetric matrices $\mb{R}^{n \times n}$ are now generalized to $\mb{C}^{n \times n}$  as $\mf{A} = \mf{A}^H$. Such matrices are called \textbf{Hermitian} matrices.
 
@@ -458,7 +458,7 @@ The use of similarity transformation to simplify a matrix is at the heart of dia
 
 
 \begin{frame}[t]{Diagonalization of a matrix}
-Let $T: \mb{R}^2 \to \mb{R}^2$ represented by $\mf{A} = \bmx 8 & 1\\2 & 7\emx$. Diagonalize this matrix. What does $\mf{A}$ do to $\mf{x} = \bmx 3 & 4\emx^T$?
+Let $T: \mb{R}^2 \to \mb{R}^2$ represented by $\mf{A} = \bmx 8 & 1\\2 & 7\emx$. Diagonalize this matrix. What does $\mf{A}$ do to $\mf{x} = \bmx 3 & 4\emx^\top$?
 \end{frame}
 
 
@@ -477,13 +477,13 @@ What about $\mf{A} = \bmx 3 & -1\\-1 & 3\emx$?
 
 \begin{frame}[t]{Diagonalization of a matrix: Eigenpairs of special matrices}
 \begin{itemize}
-    \item When $\mf{A} \in \mb{R}^{n \times n}$ is symmetric, i.e. $\mf{A} = \mf{A}^T$,
+    \item When $\mf{A} \in \mb{R}^{n \times n}$ is symmetric, i.e. $\mf{A} = \mf{A}^\top$,
     \begin{itemize}
         \item All eigenvalues are real.
         \item The matrix poses a complete set of eigenvectors, i.e. they form a linearly independent set.
         \item The eigenvectors can be chosen to be orthogonal to each other. When the eigenvalues are distinct, the eigenvectors are orthogonal. But when the eigenvalues are not distinct, we can choose them to be orthogonal.
     \end{itemize}
-    This gives us, $\mf{A} = \mf{A}^T = \mf{X}\mf{\Lambda}\mf{X}^T$.
+    This gives us, $\mf{A} = \mf{A}^\top = \mf{X}\mf{\Lambda}\mf{X}^\top$.
 \end{itemize}
 \end{frame}
 
