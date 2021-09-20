@@ -11,6 +11,17 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "lectures/07-ltisystems/ltisystems.tex",
+			"settings":
+			{
+				"buffer_size": 16403,
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+			]
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -100,7 +111,9 @@
 	},
 	"expanded_folders":
 	[
-		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/intro_to_dsp"
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/intro_to_dsp",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/intro_to_dsp/lectures",
+		"/D/work/OneDrive/OneDrive - Christian Medical College/teaching/intro_to_dsp/lectures/07-ltisystems"
 	],
 	"file_history":
 	[
@@ -227,6 +240,38 @@
 		{
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "lectures/07-ltisystems/ltisystems.tex",
+					"selected": true,
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 16403,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9795,
+								9795
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeXing/support/LaTeX Beamer.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3276.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
 			]
 		}
 	],
