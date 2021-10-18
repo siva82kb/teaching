@@ -123,7 +123,7 @@
 \title{Introduction to Digital Signal Processing}
 
 % A subtitle is optional and this may be deleted
-\subtitle{Fourier Representation of Signals}
+\subtitle{Fourier Representation of Discrete-Time Signals}
 
 \author{Sivakumar Balasubramanian}
 % - Give the names in the same order as the appear in the paper.
@@ -173,96 +173,95 @@
 \end{frame}
 
 
-\begin{frame}[t]{Representation of signals as a linear combination of other signals}
-  \begin{itemize}
-    \item Decomposition of an object into smaller/simpler components is a useful operation.
+\begin{frame}[t]{Discrete-Time Fourier Series}
+\begin{itemize}
+  \item Continuous-time complex sinusoids have frequencies $\omega \in \lp -\infty, \infty \rp$.
 
-     \item Decomposing $x[n]$ as a $\sum_{k=-\infty}^{\infty} x[k] \delta[n - k]$ was useful in understanding input-output relationship of LTI systems.
+  \item Discrete-time sinusoids have frequencies $\Omega \in \left( -\pi, \pi\right]$
 
-     \item Infinitely many ways of decomposing a signal.
+  \item A discrete-time periodic signal $x\ls n \rs$ with fundamental period $N$ can be represented as a sum of discrete-time sinusoids,
 
-     \item Decomposing into complex exponential signals is one of the oldest, most common, and very useful approaches $\longrightarrow$ \textbf{Fourier analysis}.
-  \end{itemize}
+  \[ x[n] = \sum_{k=0}^{N-1} c_k e^{j \frac{2\pi k}{N}n} \]
+
+  \item Appropriate choice of $c_k$ will let us represent $x[n]$ as a linear combination of $e^{\frac{j2\pi k}{N}n}$.
+
+  \item The Fourier coefficient $c_k$ can be determined by,
+
+  \[ c_k = \frac{1}{N} \sum_{n=0}^{N-1} x[n] e^{-j\frac{2 \pi k}{N} n} \]
+\end{itemize}
 \end{frame}
 
 
-\begin{frame}[t]{An example from Optics}
+\begin{frame}[t]{Discrete-Time Fourier Series}
+\begin{itemize}
+  \item $c_k$ is discrete like in the case of continuous-time Fourier series, and it is also periodic with fundamental period $N$, i.e. $c_k = c_{k + N}$.
   \begin{figure}
-  \includegraphics[width=0.6\textwidth]{img/decomp.png}
+  \includegraphics[width=0.55\textwidth]{img/dtfs.png}
   \end{figure}
-
-  \begin{itemize}
-    \item Sunlight (white light) can be decomposed into different colors using a prism.
-
-    \item Individual colors can be cobmined to produce white light back.
-  
-    \item Using a filter between the two prisms will allow us to mix the individual colors in different combinations.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}[t]{Spectral analysis of signals}
-  \begin{itemize}
-    \item Signals can be decomposed into different sinusoidal components.
-
-    \item Each sinusoidal component is index or parametrized by its frequency.
-
-    \item Let the set of all sinusoidal signals be $S_{ct} = \left\{ s_{\omega}\lp t \rp \vert \,\, \omega \in \mb{R} \right\}$ for continous-time signals, or $S_{dt} = \left\{ s_{\Omega}\ls n \rs \vert \,\, \Omega \in \left( -\pi , \pi\right] \right\}$ for discrete-time singals.
-    \[ x\lp t \rp = \int_{-\infty}^{\infty} X\lp \omega \rp s_\omega\lp t \rp d\omega \quad \quad \quad y\ls n \rs = \int_{-\pi}^{\pi} Y\lp \Omega \rp s_\Omega\ls n \rs d\Omega \]
-
-    $X\lp \omega \rp$ is the ``amount'' of $s_{\omega}\lp t \rp$ present in $x\lp t \rp$.
-
-    $Y\lp \Omega \rp$ is the ``amount'' of $s_{\Omega}\ls n \rs$ present in $y\ls n \rs$.    
-  \end{itemize}
-\end{frame}
-
-
-\begin{frame}[t]{Fourier Series: Linear combination of periodic signals}
-\begin{itemize}
-  \item Consider the following set of sinusoidal signals $\left\{ \sin\lp k\cdot \omega_0 t\rp \,\, \vert \,\, k \in \mb{Z}_{>0} \right\}$.
-  
-  \item $\omega_0 = 2 \pi f_0 = 2\pi\frac{1}{T_0}$ is the fundamental angular frequency of the sinusoidal signal $\sin \lp \omega_0 t \rp$.
-
-  \item Any singal of the following signal will be periodic.
-  \[ x\lp t \rp = r_0 + \sum_{k=1}^{\infty} r_k \sin\lp k\cdot \omega_0 t + \phi_k \rp, \,\,\, 0 \leq r_k \in \mb{R}, \,\, \phi_k \in \lp -\pi, \pi \rs \]
-  \vspace{0.25cm}
-  What is the fundamental period of the signal?
 \end{itemize}
 \end{frame}
 
 
-\begin{frame}[t]{Fourier Series: Linear combination of periodic signals}
+\begin{frame}[t]{Properties of Discrete-Time Fourier Series}
 \begin{itemize}
-  \item We can generate new periodic signals (of fundamental frequency $f_0$) by mixing sinusoidal signals with fundamental frequencies that are integer multiples of $f_0$.
-  \[ x\lp t \rp = r_0 + \sum_{k=1}^{\infty} r_k \sin\lp k\cdot \omega_0 t + \phi_k \rp, \,\,\, 0 \leq r_k \in \mb{R}, \,\, \phi_k \in \lp -\pi, \pi \rs \]
+  \item Fourier representation is discrete and periodic. ($c_k$ is period with fundamental period $N$)
+  \item When $N = 2M$ is even, $0 < M \in \mb{Z}$.
+  \[ c_{M + l} = c_{-M + l}, \quad 0 \leq l < \frac{N}{2} \]
+  \item When $N = 2M + 1$ is odd, $0 < M \in \mb{Z}$.
+  \[ c_{M + l} = c_{-M + l}, \quad 0 \leq l < \frac{N - 1}{2} \]
+  \item Parseval's identity.
+  \[ \frac{1}{N}\sum_{n=0}^{N-1} \vert x[n] \vert^2 = \sum_{k=0}^{N-1} \vert c_k \vert^2 \]
+  The distribution of $\vert c_k \vert^2$ as a function of $0 \leq k < N$ is the \textit{power spectral density} of the periodic signal $x[n]$.
 \end{itemize}
-\vspace{-0.2cm}
-\begin{figure}
-\includegraphics[width=0.9\textwidth]{img/sinesums.eps}
-\end{figure}
 \end{frame}
 
 
-\begin{frame}[t]{Fourier Series}
-\[ \begin{split}
-    x\lp t \rp &= r_0 + \sum_{k=1}^{\infty} r_k \sin\lp k\cdot \omega_0 t + \phi_k \rp \\
-    &= r_0 + \sum_{k=1}^{\infty} a_k \sin\lp k\cdot \omega_0 t\rp + b_k \cos\lp k\cdot \omega_0 t\rp\\
-    &= \sum_{k=0}^{\infty} \lp a_k \sin\lp k\cdot \omega_0 t\rp + b_k \cos\lp k\cdot \omega_0 t\rp \rp\\
-    \end{split}
-  \]
-Expressing $\cos(\cdot)$ and $\sin(\cdot)$ in terms of complex exponentials, and grouping terms together,
-\[ x\lp t \rp = \sum_{k=-\infty}^{\infty} c_k e^{j2\pi k f_0 t} \]
+\begin{frame}[t]{Discrete-Time Fourier Series}
+Find the DTFS of  $x[n] = \begin{cases} 1, & 0 \leq n < M \\ 0, & M \leq n < N-1 \end{cases}$ with fundamental period $N$.
 \end{frame}
 
 
-\begin{frame}[t]{Fourier Series}
-\[ x\lp t \rp = \sum_{k=-\infty}^{\infty} c_k e^{j2\pi k f_0 t} \]
+\begin{frame}[t]{Discrete-time Fourier Transform}
+\begin{itemize}
+  \item Similar to the continus-time case, the Fourier representation of discrete -time aperiodic signals can be obtained as the limiting case of the a periodic signals with increasing period $N$.
 
-Knowing $f_0$, we can compute the signal $x\lp t \rp$ from the list of numbers $(c_k)_{k=-\infty}^{\infty}$.
+  \item The discrete-time Fourier transform (DTFT) of an aperiodic signal $x[n]$ with finie energy is given by,
+  \[ X\lp \Omega \rp = \sum_{n = -\infty}^{\infty} x[n] e^{-j \Omega n}, \,\,\, -\pi \leq \Omega < \pi \]
 
-\vspace{1cm}
+  \item $X\lp \Omega \rp$ is a continuous in $\Omega$ and periodic with period $2\pi$.
 
-We can compute $c_k$ as the following,
-\[ c_k = \frac{1}{T_0} \int_{0}^{T_0} x\lp t \rp e^{-j2\pi k f_0 t} dt \]
+  \item Inverse DTFT,
+  \[ x[n] = \frac{1}{2\pi} \int_{-\pi}^{\pi} X\lp \Omega \rp e^{j\Omega n} d\Omega \]
+\end{itemize}  
+\end{frame}
+
+
+\begin{frame}[t]{Discrete-time Fourier Transform}
+\begin{itemize}
+  \item DTFT exists only if $x[n]$ is absolutely summable.
+  \[ \sum_n \vert x[n] \vert < \infty  \implies \vert X\lp \Omega \rp \vert < \infty \]
+
+  \item When $x[n]$ is only square summable, then DTFT converges to the true DTFT only in the mean squared sense.
+
+  E.g., 
+  \[ x[n] = \begin{cases} \frac{\Omega_c}{n}, & n = 0 \\ \frac{\Omega_c}{n} \frac{\sin \Omega_c n}{\Omega_c n}, & n \neq 0 \end{cases} \longrightarrow X\lp \Omega \rp  = \begin{cases} 1, & \vert \Omega \vert < \Omega_c  \\  0, & \Omega_c < \vert \Omega \vert \leq \pi \end{cases} \]
+\end{itemize}  
+\end{frame}
+
+
+\begin{frame}[t]{Properties of DTFT}
+\begin{itemize}
+  \item \textbf{Linearity}: $\alpha x[n] + \beta y[n] \xleftrightarrow{\text{DTFT}} \alpha X(\Omega) + \beta Y(\Omega)$
+  \item \textbf{Shift in time}: $ x[n-n_0] \xleftrightarrow{\text{DTFT}} e^{-j\Omega n_0}X(\Omega)$
+  \item \textbf{Shift in frequency}: $ x[n]e^{j\Omega_0 n} \xleftrightarrow{\text{DTFT}} X(\Omega - \Omega_0) $
+  \item \textbf{Time and frequency scaling}: $ x(\alpha t) \xleftrightarrow{\text{FT}} \frac{1}{\alpha} X\left(\frac{\omega}{\alpha}\right), \,\, \alpha > 0 $
+  \item \textbf{Convolution in time}: $x[n] * y[n] \xleftrightarrow{\text{DTFT}} X(\Omega)Y(\Omega)$
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[t]{Bandwidth of a signal}
+
 \end{frame}
 
 
@@ -529,7 +528,6 @@ We can still have Fourier transform for signal that are not absolutely integrabl
 
 
 \begin{frame}{Properties of Fourier transform}
-
 \begin{itemize}
 \item \textbf{Linearity}: $\alpha x(t) + \beta y(t) \xleftrightarrow{\text{FT}} \alpha X(\omega) + \beta Y(\omega)$
 \item \textbf{Shift in time}: $ x(t-t_0) \xleftrightarrow{\text{FT}} e^{-j\omega t_0}X(\omega)$
