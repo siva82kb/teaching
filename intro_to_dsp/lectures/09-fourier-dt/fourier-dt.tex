@@ -254,288 +254,43 @@ Find the DTFS of  $x[n] = \begin{cases} 1, & 0 \leq n < M \\ 0, & M \leq n < N-1
   \item \textbf{Linearity}: $\alpha x[n] + \beta y[n] \xleftrightarrow{\text{DTFT}} \alpha X(\Omega) + \beta Y(\Omega)$
   \item \textbf{Shift in time}: $ x[n-n_0] \xleftrightarrow{\text{DTFT}} e^{-j\Omega n_0}X(\Omega)$
   \item \textbf{Shift in frequency}: $ x[n]e^{j\Omega_0 n} \xleftrightarrow{\text{DTFT}} X(\Omega - \Omega_0) $
-  \item \textbf{Time and frequency scaling}: $ x(\alpha t) \xleftrightarrow{\text{FT}} \frac{1}{\alpha} X\left(\frac{\omega}{\alpha}\right), \,\, \alpha > 0 $
+  \item \textbf{Time and frequency scaling}: $ x(\alpha t) \xleftrightarrow{\text{DTFT}} \frac{1}{\alpha} X\left(\frac{\omega}{\alpha}\right), \,\, \alpha > 0 $
+  \item \textbf{Symmetry in time}: $ x(t) \xleftrightarrow{\text{DTFT}} X\left(\Omega\right)$ is real.
   \item \textbf{Convolution in time}: $x[n] * y[n] \xleftrightarrow{\text{DTFT}} X(\Omega)Y(\Omega)$
 \end{itemize}
 \end{frame}
 
 
+\begin{frame}[t]{Classification of signals based on the frequencty spectrum}
+\begin{itemize}
+  \item We can also classify signals based on how their energy is distributed across frequency.
+  \item \textbf{Low frequency signal}. Most of the energy is concentrated around 0Hz and frequencies around 0Hz.
+  \item \textbf{High frequency signal}. Very less is concentrated around 0Hz, and most of the energy is in the higher frequencies all the way upto $\omega \to \infty$.
+  \item \textbf{Bandpass signal}. Very less concentration around 0Hz and at high frequencies. Most of the energy is concentrated within a band of finite frequencies. 
+  \item \textbf{Bandlimited signal}. Signal energy is uniformly zero beyond a particular frequency, i.e. $\vert X\lp \omega \rp \vert = 0, \,\, \forall \vert \omega \vert > \omega_b$.
+\end{itemize}
+\end{frame}
+
+
 \begin{frame}[t]{Bandwidth of a signal}
-
-\end{frame}
-
-
-\begin{frame}[t]{Fourier Series}
-\begin{figure}
-  \includegraphics[width=0.7\textwidth]{img/fourierseries.png}
-\end{figure}
-\end{frame}
-
-
-\begin{frame}[t]{Fourier Series}
-\begin{figure}
-  \includegraphics[width=0.9\textwidth]{img/fsspectrum.png}
-\end{figure}
-\end{frame}
-
-
-\begin{frame}[t]{Fourier Series}
-\vspace{-0.5cm}
-\begin{small}
-\[ x(t) = -0.1 + 0.8 \cos\lp 2\pi t\rp + 0.5 \cos\lp 4\pi t + \frac{\pi}{4}\rp + 0.05 \cos\lp 6\pi t - \frac{\pi}{4}\rp + 0.2 \cos\lp 8\pi t + \frac{8\pi}{9}\rp \]
-\end{small}
-
-\begin{figure}
-  \includegraphics[width=1.0\textwidth]{img/fs-demo.eps}
-  \end{figure}
-\end{frame}
-
-
-\begin{frame}[t]{Fourier Series}
-\vspace{-0.5cm}
-\begin{small}
-\[ x(t) = 0.8 \sin\lp 2\pi t\rp + 0.5 \sin\lp 4\pi t + \frac{\pi}{4}\rp + 0.05 \sin\lp 6\pi t - \frac{\pi}{4}\rp + 0.2 \sin\lp 8\pi t + \frac{8\pi}{9}\rp \]
-\end{small}
-
-\begin{figure}
-\includegraphics[width=1.0\textwidth]{img/fs-demo-sin.eps}
-\end{figure}
-\end{frame}
-
-
-\begin{frame}[t]{Does any periodic signal have a Fourier series representation?}
 \begin{itemize}
-  \item If $x(t)$ is absolutely integrable over a single cycle, then the Fourier serious coefficients exist.
-  \item Any continuous periodic function will have a Fourier series representation.
+  \item The band of frequencies over which most of the energy is distributed is the \textit{bandwidth} of the signal.
+  \item Several ways to define the bandwidth of a signal.
+  \item \textbf{3 dB bandwidth}. Frequency range over which the spectral density is above a particular threshold.
 
-  \item When $x(t)=$ is continuous and finite, then reconstructed signal $\sum_{k=-\infty}^{\infty} c_k e^{-jk \omega_0 t}$ will be equal to $x(t)$ pointwise.
-  \[ x\lp t \rp = \sum_{k=-\infty}^{\infty} c_k e^{-jk \omega_0 t} \,\,\ \forall t \]
+  Threshold value is often defined relative to the max. value of the spectal density.
 \end{itemize}
 \end{frame}
 
-
-\begin{frame}[t]{Does any periodic signal have a Fourier series representation?}
-\vspace{-0.5cm}
-% \begin{small}
-\[ x(t) = \begin{cases} t, & 0 \leq t < 0.5 \\
-1 - t, & 0.5 \leq t < 1\end{cases} \,\, \longrightarrow \,\, c_k = \begin{cases} \frac{1}{4}, & k = 0 \\ \frac{4}{k^2\omega_0^2}\sin^2\lp \frac{k \omega_0}{4} \rp e^{-j\frac{k \omega_0}{2}},  & k \neq 0 \end{cases} \]
-% \end{small}
-
-\begin{figure}
-  \includegraphics[width=0.8\textwidth]{img/fs-triwave.eps}
-  \end{figure}
-\end{frame}
-
-
-\begin{frame}[t]{Does any periodic signal have a Fourier series representation?}
-\begin{itemize}
-  \item If $x(t)$ is finite but discontinuous $\longrightarrow$ No pointwise equality. Only means squared convergence is possible.
-  \[ \lim_{N \to \infty} \int_{0}^{T_0}\left|x(t) - \sum_{k=-N}^{N} c_k e^{j2\pi k f_0 t} \right|^2dt = 0 \]
-  This means that the reconstructed signal $\sum_{k=-N}^{N} c_k e^{j2\pi k f_0 t}$ need not be equal to the signal $x(t)$ at a discrete set of points, i.e. at the points where there is a discontinuity.
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}[t]{Does any periodic signal have a Fourier series representation?}
-\vspace{-0.5cm}
-% \begin{small}
-\[ x(t) = \begin{cases} 1, & 0 \leq t < 0.5 \\
-0, & 0.5 \leq t < 1\end{cases} \,\, \longrightarrow \,\, c_k = \begin{cases} \frac{1}{2}, & k = 0 \\ \frac{2}{k\omega_0}\sin\lp \frac{k \omega_0}{4} \rp e^{-j\frac{k \omega_0}{4}},  & k \neq 0 \end{cases} \]
-% \end{small}
-
-\begin{figure}
-  \includegraphics[width=0.8\textwidth]{img/fs-sqwave.eps}
-  \end{figure}
-\end{frame}
-
-
-\begin{frame}[t]{Dirichlet conditions for Fourier series}
-The \textit{Dirichlet conditions} guarantee that the $c_k$ exists, and $\sum_{k=-N}^{N} c_k e^{j2\pi k f_0 t}$ is equal to $x(t)$ except at time points where there is a discontinuity.
-\vspace{0.5cm}
-
-At a discontinuity, $\sum_{k=-N}^{N} c_k e^{j2\pi k f_0 t}$ converges to the midpoint of the discontinuity.
-\vspace{0.5cm}
-
-The \textit{Dirichlet conditions} are that a single cycle of $x(t)$:
-\begin{enumerate}
-  \item has a finite number of disconuities.
-  \item has a finite number of maxima and minima.
-  \item is absolutely integrable.  $\int_{0}^{T_0} \vert x(t) \vert dt < \infty$
-\end{enumerate}
-\end{frame}
-
-
-\begin{frame}[t]{Power Spectral Density of Periodic Signals}
-
-\textbf{Some definitions:}
-\vspace{0.1cm}
-\begin{itemize}
-  \item Instantaneous power of a signal $x(t) \, \triangleq \, \vert x(t) \vert^2$
-  \vspace{0.25cm}
-
-  \item Total energy of a signal $x(t)$ in a time interval $[T_1, T_2] \, \triangleq \, \int_{T_1}^{T_2}\vert x(t) \vert^2 dt $
-  \vspace{0.25cm}
-
-  \item Average power over a time interval $[T_1, T_2] \, \triangleq \, \frac{1}{T_2 - T_1}\int_{T_1}^{T_2}\vert x(t) \vert^2 dt $
-
-  \item \textbf{Energy signal}: Signals with a finite total energy and zero average power over their entire duration.
-  \[ \int_{-\infty}^{\infty} \vert x(t) \vert^2 dt < \infty \quad \text{and} \quad \lim_{T \to \infty} \frac{1}{2T}\int_{-T}^{T} \vert x(t) \vert^2 dt = 0 \]
-
-  \item \textbf{Power signal}: Signals with a finite average power, and infinite energy.
-  \[ \lim_{T \to \infty} \int_{-T}^{T} \vert x(t) \vert^2 dt = \infty \quad \text{and} \quad \lim_{T \to \infty} \frac{1}{2T}\int_{-T}^{T} \vert x(t) \vert^2 dt < \infty \]
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}[t]{Power Spectral Density of Periodic Signals}
-\vspace{0.25cm}
-
-\textbf{Parseval's Identity}.
-\vspace{0.25cm}
-
-Let $x(t) = \sum_{k=-\infty}^{\infty} c_k e^{jk\omega_0t}$, then
-\[ P_x = \frac{1}{T_0} \int_{0}^{T_0} \vert x(t) \vert^2 dt = \sum_{k=-\infty}^{\infty} \vert c_k \vert^2 \]
-
-\vspace{0.5cm}
-
-Fourier series representation preserves the average power of the periodic signal $x(t)$.
-
-\vspace{0.5cm}
-
-$\vert c_k \vert^2$ is the power in ofn the $k^{th}$ harmonic.
-
-\vspace{0.5cm}
-
-$\vert c_k \vert^2$ as a function of $k$ is the \textbf{Power Spectral Density} of $x(t)$.
-\end{frame}
-
-
-\begin{frame}[t]{Power Spectral Density of Periodic Signals}
-
-\begin{figure}
-\includegraphics[width=0.8\textwidth]{img/fs-sqwave-psd.eps}
-\end{figure}
-\end{frame}
-
-
-\begin{frame}{Power Spectral Density of Periodic Signals}
-  \begin{figure}
-  \includegraphics[width=0.8\textwidth]{img/decomp.png}
-  \end{figure}
-\end{frame}
-
-
-\begin{frame}{Fourier representation of aperiodic signals}
-
-We can approach this problem starting from the Fourier series.
-
-\[ x(t) = \begin{cases}
-1, & \vert t \vert \leq \frac{\tau}{2} \\
-0, & \tau < \vert t \vert \leq \frac{T_0}{2} 
-\end{cases}, \text{where, } 0 < \tau < \frac{T_0}{2} \]
-\[ \Big\downarrow \]
-\[ c_k = \frac{\tau}{T_0} \frac{\sin\lp \pi k f_0 \tau\rp}{\pi k f_0 \tau}, \,\, k = 0, \pm 1 , \pm 2, \ldots \]
-
-\end{frame}
-
-
-\begin{frame}{Fourier representation of aperiodic signals}
-\begin{figure}
-\includegraphics[width=1.0\textwidth]{img/fs-cont.eps}
-\end{figure}
-\end{frame}
-
-
-\begin{frame}[t]{Fourier representation of aperiodic signals: Fourier Transform}
-\begin{small}
-\[ x(t) = \begin{cases}
-1, & \vert t \vert \leq \frac{\tau}{2} \\
-0, & \tau < \vert t \vert \leq \frac{T_0}{2} 
-\end{cases}, \text{where, } 0 < \tau < \frac{T_0}{2} \]
-\[ \Big\downarrow \]
-\[ c_k = \frac{\tau}{T_0} \frac{\sin \lp \frac{k \omega_0 \tau}{2} \rp}{\frac{k \omega_0 \tau}{2}}, \,\, k = 0, \pm 1 , \pm 2, \ldots \]
-\end{small}
-
-\[ T_0 \to \infty \quad \implies \quad \omega_0 \to 0 \quad \implies \quad \left\{ k \omega_0 \right\}_{k=-\infty}^{\infty} \to \omega \in \mb{R} \quad \implies \quad c_k \to X\lp \omega \rp \]
-
-\[ c_k = \frac{1}{T_0} \int_{0}^{T_0} x\lp t \rp e^{-jk\omega_0 t} dt \quad \longrightarrow \quad X\lp \omega \rp = \int_{-\infty}^{\infty} x\lp t \rp e^{-j\omega t} dt \]
-\vspace{0.2cm}
-
-This is the \textbf{Fourier transform}.
-\end{frame}
-
-
-\begin{frame}[t]{Fourier representation of aperiodic signals}
-\[ x(t) = \begin{cases}
-1, & \vert t \vert \leq \frac{\tau}{2} \\
-0, & \frac{\tau}{2} < \vert t \vert 
-\end{cases} \quad \longrightarrow \quad X\lp \omega \rp = \tau \cdot \frac{\sin\lp \frac{\omega \tau}{2} \rp}{\frac{\omega \tau}{2}} = \tau \cdot \mathrm{sinc}\lp \frac{\omega \tau}{2} \rp \]
-\vspace{0.2cm}
-
-We can reconstruct the time-domain signal from the $X\lp \omega \rp$,
-\[ x(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} X\lp \omega \rp e^{j\omega t} d\omega \]
-\vspace{0.2cm}
-
-This is the \textbf{Inverse Fourier Transform.}
-
-\end{frame}
-
-
-\begin{frame}[t]{Fourier Transform}
-\begin{figure}
-  \includegraphics[width=\textwidth]{img/ft-pulse.eps}
-\end{figure}
-\end{frame}
-
-
-\begin{frame}[t]{Fourier Transform}
-\begin{figure}
-  \includegraphics[width=0.7\textwidth]{img/fouriertransform.png}
-\end{figure}
-\end{frame}
-
-
-\begin{frame}[t]{Dirichlet Conditions for the Fourier Transform}
-The \textit{Dirichlet conditions} for the existence of the Fourier transform are that $x(t)$:
-\begin{enumerate}
-  \item has a finite number of discontinuities.
-  \item has a finite number of maxima and minima.
-  \item is absolutely integrable. $\int_{-\infty}^{\infty} \vert x(t) \vert dt < \infty$. 
-\end{enumerate}
-This ensures that $X\lp \omega \rp$ is finite and continuous.
-
-\vspace{0.5cm}
-
-We can still have Fourier transform for signal that are not absolutely integrable, but square integrable, i.e. $\int_{-\infty}^{\infty} \vert x(t) \vert^2 dt < \infty$.
-
-\vspace{0.5cm}
-
-\textbf{Example:} $x\lp t \rp = \omega_0 \mathrm{sinc}\lp \omega_0 t\rp$ is not absolutely integrable, but $X\lp \omega \rp = \begin{cases} 1, & \vert \omega \vert < \omega_0 \\ 0, & \vert \omega \vert > \omega_0\end{cases}$.
-\end{frame}
 
 \begin{frame}[t]
-  \frametitle{Parseval's identity for aperiodic signals}
-
-  Energy of an aperiodic signal $x(t)$:
-  \[ E_x = \int_{-\infty}^{\infty} \vert x(t) \vert^2 dt \]
-
-  Parseval's identity:
-  \[ E_x = \int_{-\infty}^{\infty} \vert x(t) \vert^2 dt = \frac{1}{2\pi}\int_{-\infty}^{\infty} \vert X\lp \omega \rp\vert^2 d\omega \]
-  
-  $S_{xx}\lp \omega \rp = \frac{1}{2\pi}\vert X\lp \omega \rp\vert^2$ is the distribution of signal energey over frequency: \textbf{Energy density spectrum}.
-
+  \frametitle{Frequency-Domain and Time-Domain Properties}
+  \begin{itemize}
+    \item \textbf{Continuous-Time, Periodic} $\longrightarrow$
+    \item \textbf{Discrete-Time, Non-Periodic} $\longrightarrow$
+    \item \textbf{Continuous-Frequency, Periodic} $\longrightarrow$
+    \item \textbf{Discrete-Frequency, Non-Periodic} $\longrightarrow$
+  \end{itemize}
 \end{frame}
-
-
-\begin{frame}{Properties of Fourier transform}
-\begin{itemize}
-\item \textbf{Linearity}: $\alpha x(t) + \beta y(t) \xleftrightarrow{\text{FT}} \alpha X(\omega) + \beta Y(\omega)$
-\item \textbf{Shift in time}: $ x(t-t_0) \xleftrightarrow{\text{FT}} e^{-j\omega t_0}X(\omega)$
-\item \textbf{Shift in frequency}: $ x(t)e^{j\omega_0 t} \xleftrightarrow{\text{FT}} X(\omega - \omega_0) $
-\item \textbf{Time and frequency scaling}: $ x(\alpha t) \xleftrightarrow{\text{FT}} \frac{1}{\alpha} X\left(\frac{\omega}{\alpha}\right), \,\, \alpha > 0 $
-\item \textbf{Convolution in time}: $x(t) * y(t) \xleftrightarrow{\text{FT}} X(\omega)Y(\omega) $
-\end{itemize}
-\end{frame}
-
 
 \end{document}
