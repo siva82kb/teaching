@@ -254,9 +254,9 @@ Find the DTFS of  $x[n] = \begin{cases} 1, & 0 \leq n < M \\ 0, & M \leq n < N-1
   \item \textbf{Linearity}: $\alpha x[n] + \beta y[n] \xleftrightarrow{\text{DTFT}} \alpha X(\Omega) + \beta Y(\Omega)$
   \item \textbf{Shift in time}: $ x[n-n_0] \xleftrightarrow{\text{DTFT}} e^{-j\Omega n_0}X(\Omega)$
   \item \textbf{Shift in frequency}: $ x[n]e^{j\Omega_0 n} \xleftrightarrow{\text{DTFT}} X(\Omega - \Omega_0) $
-  \item \textbf{Time and frequency scaling}: $ x(\alpha t) \xleftrightarrow{\text{DTFT}} \frac{1}{\alpha} X\left(\frac{\omega}{\alpha}\right), \,\, \alpha > 0 $
-  \item \textbf{Symmetry in time}: $ x(t) \xleftrightarrow{\text{DTFT}} X\left(\Omega\right)$ is real.
+  \item \textbf{Symmetry in time}: $ x[n] \xleftrightarrow{\text{DTFT}} X\left(\Omega\right)$ is real.
   \item \textbf{Convolution in time}: $x[n] * y[n] \xleftrightarrow{\text{DTFT}} X(\Omega)Y(\Omega)$
+  \item \textbf{Convolution in frequency}: $x[n] \cdot y[n] \xleftrightarrow{\text{DTFT}} X(\Omega) * Y(\Omega)$
 \end{itemize}
 \end{frame}
 
