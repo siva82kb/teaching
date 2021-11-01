@@ -174,57 +174,153 @@
 
 
 \begin{frame}[t]{Z transform}
+\begin{itemize}
+  \item Exponential signals are \textit{eigenfucntiopns} of LTI systems.
+  \[  z^n \longrightarrow H\lp z \rp z^n \]
+  $H(z)$ is the eigenvalue corresponding to the eigenfunction $z^n$.
 
+  \item If $x[n] = \sum_{k} \alpha_k z_k^n$, then $y[n] = \sum_{k} \alpha_k H\lp z_k \rp z_k^n$.
+  \[ \begin{split}
+      \lp \alpha_k \rp_{k \in \mb{Z}} & \longrightarrow \text{Representation of } x[n] \text{ using } z_k^n \\
+      \lp H\lp z_k \rp \alpha_k \rp_{k \in \mb{Z}} & \longrightarrow \text{Representation of } x[n] \text{ using } z_k^n \\
+      \end{split} \]
+
+  \item The z-transoform allows us to find the representation of any disctet-time signal $x[n]$ in terms of the set of complex exponentials $\{ z^n \}_{z \in \mb{C}}$ 
+\end{itemize}
 \end{frame}
 
 
 \begin{frame}[t]{z transform}
+The z-transform of a discrete time signal $x[n]$ is defined as the following power seris,
+\[ X\lp z \rp \triangleq \sum_{n=-\infty}^{\infty} x[n] z^{-n} = \mc{Z}\lp x[n] \rp\]
+\[ x[n] \xleftrightarrow{\mc{Z}} X\lp z \rp  \]
+where, $z \in \mb{C}$.
+
+\begin{itemize}
+  \item The values of $z$ for which the above summation covnerges is called the \textit{region of conergence} of $X(z)$.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[t]{z transform}
+z-transform of some signals.
+\begin{enumerate}
+  \item $\delta[n]$
+  \item $\delta[n-k]$
+  \item $\delta[n+k]$
+  \item $\sum_{k=0}^{5} \alpha_k \delta[n - k]$
+  \item $1[n]$
+  \item $a^k \cdot 1[n]$
+  \item $-a^{k} \cdot 1[-n-1]$
+\end{enumerate}
 \end{frame}
 
 
 \begin{frame}[t]
-  \frametitle{Fourier transform of a Modulated Impulse train}
+  \frametitle{z-transform and ROCs}
+  \begin{center}
   \begin{figure}
   \centering
-  \includegraphics[width=1\textwidth, left]{img/impulsetrain.eps}
+  \includegraphics[width=0.7\textwidth, left]{img/ztrans-finite-dur.eps}
   \end{figure}
-
-  \begin{figure}
-  \centering
-  \includegraphics[width=1\textwidth, left]{img/sampling1.eps}
-  \end{figure}
-\end{frame}
-
-\begin{frame}[t]
-  \frametitle{Fourier transform of a Modulated Impulse train}
-  \begin{figure}
-  \centering
-  \includegraphics[width=1\textwidth, left]{img/sampling2.eps}
-  \end{figure}
+  \end{center}
 \end{frame}
 
 
 \begin{frame}[t]
-  \frametitle{Sampling at the Nyquist rate}
+  \frametitle{z-transform and ROCs}
+  \begin{center}
   \begin{figure}
   \centering
-  \includegraphics[width=1\textwidth, left]{img/sampling4.eps}
+  \includegraphics[width=0.7\textwidth, left]{img/ztrans-infinite-dur.eps}
   \end{figure}
+  \end{center}
 \end{frame}
 
 
 \begin{frame}[t]
-  \frametitle{What happens when the signal is not bandlimited?}
-  \begin{figure}
-  \centering
-  \includegraphics[width=1\textwidth, left]{img/sampling-nbl.eps}
-  \end{figure}
-
-  \begin{figure}
-  \centering
-  \includegraphics[width=1\textwidth, left]{img/sampling-nbl-high.eps}
-  \end{figure}
+  \frametitle{Properties of the z-transform}
+  \begin{itemize}
+      \item Linearity
+      \item Time-shifting
+      \item Convolution in time
+      \item Initital value theorem
+    \end{itemize}  
 \end{frame}
+
+\begin{frame}[t]
+  \frametitle{Unilateral z-transform}
+
+  z-transform of causal signals of the form $x[n]\cdot 1[n]$.
+
+  \[ X(z) = \sum_{n=0}^{\infty} x[n] z^{-n} \]
+  
+  This is useful when analysing linear difference equations.
+
+  When the time domain signal $x[n]$ is delayed by a sample, such that the signal is $x[n-1] \cdot 1[n]$, then we have
+  \[ x[n] \cdot 1[n] \xleftrightarrow{\mc{Z}_{ul}} X(z) \implies x[n-1] \cdot 1[n] \xleftrightarrow{\mc{Z}_{ul}} z^{-1} X\lp z \rp + x[-1] \] 
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Transfer function of an LTI system}
+
+  The z-transform of the impulse response $h[n]$ is defined as the transfer function of a discrete-time LTI system.
+  \[ H\lp z \rp = \sum_{n=-\infty}^{\infty} h[n] z^{-n} \]
+
+  When the system is causal, then $H\lp z \rp = \sum_{n=0}^{\infty} h[n] z^{-n}$.
+
+  The z-transforms of the input $x[n]$ and $y[n]$ are related to each other through the transfer function, 
+  \[ Y(z) = H(z) \cdot X(z) \]
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Rational z-transforms}
+  \begin{itemize}
+    \item In practice, we often come across rational polynomial of $z$.
+    \item Consider a LTI system described by the following different equation,
+    \[ y[n] + a_1 y[n-1] + a_2 y[n-2] + \cdot + a_Ny[n - N] = b_0x[n] + b_1 x[n-1] + \cdots + b_M x[n - M] \] 
+    We are interested in sovling this equation from time $n = 0$ for an input of the form $x[n]\cdot 1[n]$. Taking the unilateral z-transform on both sides,
+    \[ \begin{split}
+        y[n] \xleftrightarrow{\mc{Z}_{ul}} \,\, & \,\, Y(z) \\
+        y[n-1] \xleftrightarrow{\mc{Z}_{ul}} \,\, & \,\, z^{-1}Y(z) + y[-1] \\
+        y[n-2] \xleftrightarrow{\mc{Z}_{ul}} \,\, & \,\, z^{-2}Y(z) + z^{-1}y[-1] + y[-2] \\
+        \vdots & \\
+        y[n-N] \xleftrightarrow{\mc{Z}_{ul}} \,\, & \,\, z^{-N}Y(z) + z^{-(N-1)}y[-1] + z^{-(N-2)}y[-2] + \cdots + y[-N]
+        \end{split} 
+        \]
+  \end{itemize}
+\end{frame}
+
+% \begin{frame}[t]
+%   \frametitle{Fourier transform of a Modulated Impulse train}
+%   \begin{figure}
+%   \centering
+%   \includegraphics[width=1\textwidth, left]{img/sampling2.eps}
+%   \end{figure}
+% \end{frame}
+
+
+% \begin{frame}[t]
+%   \frametitle{Sampling at the Nyquist rate}
+%   \begin{figure}
+%   \centering
+%   \includegraphics[width=1\textwidth, left]{img/sampling4.eps}
+%   \end{figure}
+% \end{frame}
+
+
+% \begin{frame}[t]
+%   \frametitle{What happens when the signal is not bandlimited?}
+%   \begin{figure}
+%   \centering
+%   \includegraphics[width=1\textwidth, left]{img/sampling-nbl.eps}
+%   \end{figure}
+
+%   \begin{figure}
+%   \centering
+%   \includegraphics[width=1\textwidth, left]{img/sampling-nbl-high.eps}
+%   \end{figure}
+% \end{frame}
 
 
 \end{document}
