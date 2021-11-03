@@ -249,19 +249,6 @@ z-transform of some signals.
 \end{frame}
 
 \begin{frame}[t]
-  \frametitle{Unilateral z-transform}
-
-  z-transform of causal signals of the form $x[n]\cdot 1[n]$.
-
-  \[ X(z) = \sum_{n=0}^{\infty} x[n] z^{-n} \]
-  
-  This is useful when analysing linear difference equations.
-
-  When the time domain signal $x[n]$ is delayed by a sample, such that the signal is $x[n-1] \cdot 1[n]$, then we have
-  \[ x[n] \cdot 1[n] \xleftrightarrow{\mc{Z}_{ul}} X(z) \implies x[n-1] \cdot 1[n] \xleftrightarrow{\mc{Z}_{ul}} z^{-1} X\lp z \rp + x[-1] \] 
-\end{frame}
-
-\begin{frame}[t]
   \frametitle{Transfer function of an LTI system}
 
   The z-transform of the impulse response $h[n]$ is defined as the transfer function of a discrete-time LTI system.
@@ -274,53 +261,186 @@ z-transform of some signals.
 \end{frame}
 
 \begin{frame}[t]
+  \frametitle{Unilateral z-transform}
+
+  When solving difference equations, we are interested in computing the output $y[n]$ from time $n=0$ for an input $x[n]$ that is specified from time $n=0$. Here we cannot use the regular z-transform (also called as two-sided or bilateral z-transform). 
+
+  \[ X^+(z) \triangleq \sum_{n=0}^{\infty} x[n] z^{-n} \]
+  
+  This is useful when analysing linear difference equations.
+
+  When the time domain signal $x[n]$ is delayed by a sample, such that the signal is $x[n-1] \cdot 1[n]$, then we have
+  \[ x[n] \xleftrightarrow{\mc{Z}^+} X^+(z) \implies x[n-1] \xleftrightarrow{\mc{Z}^+} z^{-1} X^+\lp z \rp + x[-1] \]
+
+  $X^+(z) = X(z)$ for causal an signal $x[n]$.
+\end{frame}
+
+\begin{frame}[t]
   \frametitle{Rational z-transforms}
   \begin{itemize}
     \item In practice, we often come across rational polynomial of $z$.
     \item Consider a LTI system described by the following different equation,
     \[ y[n] + a_1 y[n-1] + a_2 y[n-2] + \cdot + a_Ny[n - N] = b_0x[n] + b_1 x[n-1] + \cdots + b_M x[n - M] \] 
-    We are interested in sovling this equation from time $n = 0$ for an input of the form $x[n]\cdot 1[n]$. Taking the unilateral z-transform on both sides,
+    We are interested in sovling this equation from time $n = 0$ for an input specified from time $n \geq 0$. Taking the unilateral z-transform on both sides,
     \[ \begin{split}
-        y[n] \xleftrightarrow{\mc{Z}_{ul}} \,\, & \,\, Y(z) \\
-        y[n-1] \xleftrightarrow{\mc{Z}_{ul}} \,\, & \,\, z^{-1}Y(z) + y[-1] \\
-        y[n-2] \xleftrightarrow{\mc{Z}_{ul}} \,\, & \,\, z^{-2}Y(z) + z^{-1}y[-1] + y[-2] \\
+        y[n] \xleftrightarrow{\mc{Z}^+} \,\, & \,\, Y^+(z) \\
+        y[n-1] \xleftrightarrow{\mc{Z}^+} \,\, & \,\, z^{-1}Y^+(z) + y[-1] \\
+        y[n-2] \xleftrightarrow{\mc{Z}^+} \,\, & \,\, z^{-2}Y^+(z) + z^{-1}y[-1] + y[-2] \\
         \vdots & \\
-        y[n-N] \xleftrightarrow{\mc{Z}_{ul}} \,\, & \,\, z^{-N}Y(z) + z^{-(N-1)}y[-1] + z^{-(N-2)}y[-2] + \cdots + y[-N]
+        y[n-N] \xleftrightarrow{\mc{Z}^+} \,\, & \,\, z^{-N}Y^+(z) + z^{-(N-1)}y[-1] + z^{-(N-2)}y[-2] + \cdots + y[-N]
         \end{split} 
         \]
   \end{itemize}
 \end{frame}
 
-% \begin{frame}[t]
-%   \frametitle{Fourier transform of a Modulated Impulse train}
-%   \begin{figure}
-%   \centering
-%   \includegraphics[width=1\textwidth, left]{img/sampling2.eps}
-%   \end{figure}
-% \end{frame}
+
+\begin{frame}[t]
+  \frametitle{Rational z-transforms}
+  If we assume a causal inout signal $x[n]$,
+  \[ Y^+(z) + \sum_{k=1}^N a_kz^{-k} \lp Y^+(z) + \sum_{l=1}^{k} y[-l] z^{l}\rp = X(z)\lp b_0 + b_1z^{-1} + \cdots + z^{-M} \rp\]
+  \[ Y^+(z)\lp 1 + \sum_{k=1}^N a_kz^{-k} \rp + \sum_{k=1}^N a_kz^{-k} \lp \sum_{l=1}^{k} y[-l] z^{l} \rp = X(z)\lp b_0 + b_1z^{-1} + \cdots + z^{-M}\rp \]
+  \[ Y^+(z) =  \frac{B(z)}{A(z)} X\lp z \rp + \frac{N_0(z)}{A(z)}  \]
+  where, 
+  \begin{itemize}
+    \item $B(z) = \sum_{l=0}^{M} b_l z^-l$
+    \item $A(z) = 1 + \sum_{k=1}^N a_kz^{-k}$
+    \item $N_0(z) = -\sum_{k=1}^N a_kz^{-k} \lp \sum_{l=1}^{k} y[-l] z^{l} \rp$
+  \end{itemize}
+\end{frame}
 
 
-% \begin{frame}[t]
-%   \frametitle{Sampling at the Nyquist rate}
-%   \begin{figure}
-%   \centering
-%   \includegraphics[width=1\textwidth, left]{img/sampling4.eps}
-%   \end{figure}
-% \end{frame}
+\begin{frame}[t]
+  \frametitle{Rational z-transform}
+  Zero-state response, when the initial conditions are zero.
+  \[ Y_{zs}(z) = \frac{B\lp z \rp}{A\lp z \rp}X\lp z \rp = H\lp z \rp X\lp z \rp \]
+
+  Zero-input reesponse, wheren the input is zero and the initial conditions are non-zero.
+  \[ Y_{zi}^+\lp z \rp = \frac{N_0\lp z \rp}{A\lp z \rp} \]
+\end{frame}
 
 
-% \begin{frame}[t]
-%   \frametitle{What happens when the signal is not bandlimited?}
-%   \begin{figure}
-%   \centering
-%   \includegraphics[width=1\textwidth, left]{img/sampling-nbl.eps}
-%   \end{figure}
+\begin{frame}[t]
+  \frametitle{Inverse z-transform of Rational Polynomials of $z$}
+  Consider the following rational polynomial,
+  \[ X(z) = \frac{N(z)}{D(z)} = \frac{b_0 + b_1z^{-1} + \cdots + b_Mz^{-M}}{1 + a_1z^{-1} + \cdots + a_Nz^{-N}} \]
 
-%   \begin{figure}
-%   \centering
-%   \includegraphics[width=1\textwidth, left]{img/sampling-nbl-high.eps}
-%   \end{figure}
-% \end{frame}
+  The rational polynomial $X(z)$ is called \textit{proper} if $M < N$ and $a_N \neq 0$.
+
+  It is \textit{improper} if $M \geq N$.
+
+  Improper rationla polynomial can be converted to the following form,
+  \[ X(z) = \frac{N(z)}{D(z)} = c_0 + c_1z^{-1} + \cdots + c_{M-N}z^{-(M-N)} + \frac{N_0(z)}{D(z)} \]
+
+  Convert the rational polynomial as a function of $z$ instead of $z^{-1}$ by multiplying both the numerator and denominator by $z^{N}$.
+  \[ X(z) = \frac{N(z)}{D(z)} = \frac{b_0z^N + b_1 z^{N-1} + \cdots + b_Mz^{N-M}}{z^N + a_1z^{N-1} + \cdots + a_N} \]
+\end{frame}
+
+
+\begin{frame}[t]
+  \frametitle{Inverse z-transform of Rational Polynomials of $z$}
+  Convert the rational polynomial as a function of $z$ instead of $z^{-1}$ by multiplying both the numerator and denominator by $z^{N}$.
+  \[ X(z) = \frac{N(z)}{D(z)} = \frac{b_0z^N + b_1 z^{N-1} + \cdots + b_Mz^{N-M}}{z^N + a_1z^{N-1} + \cdots + a_N} \]
+  \[ \frac{X(z)}{z} = \frac{b_0z^{N-1} + b_1 z^{N-2} + \cdots + b_Mz^{N-M-1}}{z^N + a_1z^{N-1} + \cdots + a_N} \]
+
+  Let the roots of the denominator of $\frac{X(z)}{z}$ be $p_1, p_2, \ldots p_N$.
+  \[ \frac{X(z)}{z} = \frac{b_0z^{N-1} + b_1 z^{N-2} + \cdots + b_Mz^{N-M-1}}{\lp z - p_1\rp \lp z - p_2\rp \cdots \lp z - p_N\rp} \]
+
+  The roots of the denominator $D(z)$ are the called the \textit{poles} of $X(z)$ and the roots of the numerator $N(z)$ are called the \textit{zeros} of $X(z)$.
+\end{frame}
+
+
+\begin{frame}[t]
+  \frametitle{Inverse z-transform of Rational Polynomials of $z$}
+  \textbf{Distinct Poles}
+  \[ \frac{X(z)}{z} = \frac{b_0z^{N-1} + b_1 z^{N-2} + \cdots + b_Mz^{N-M-1}}{\lp z - p_1\rp \lp z - p_2\rp \cdots \lp z - p_N\rp} = \frac{A_1}{z - p_1} + \frac{A_2}{z - p_2} + \cdots + \frac{A_N}{z - p_N} \]
+
+  Multipying both sides by $(z - p_k)$, and substituting $z = p_k$, we get
+  \[ (z - p_k)\frac{X(z)}{z} \bigg\vert_{z = p_k} = A_k \]
+
+  Find the inverse z-transform of the following,
+  \[ X(z)  =\frac{1 + z^{-1}}{1 - z^{-1} + 0.5z^{-2}}\]
+\end{frame}
+
+
+\begin{frame}[t]
+  \frametitle{Inverse z-transform of Rational Polynomials of $z$}  
+\end{frame}
+
+
+\begin{frame}[t]
+  \frametitle{Inverse z-transform of Rational Polynomials of $z$}
+  \textbf{Multiple-order poles}. Let $X(z)$ have a pole of multiplicity $l$, then the denominator has a term $(z - p_k)^l$
+
+  Find the inverse z-transform of the following,
+  \[ X(z)  =\frac{1}{(1 + z^{-1})(1 - z^{-1})^2} \]
+\end{frame}
+
+
+\begin{frame}[t]
+  \frametitle{Inverse z-transform of Rational Polynomials of $z$}
+  \[ \mc{Z}^{-1} \lp \frac{1}{1 - z^{-1}p_k} \rp = \begin{cases}
+  p_k^n \cdot 1[n], & ROC: \vert z \vert > \vert p_k \vert \\ 
+  -p_k^n \cdot 1[-n-1], & ROC: \vert z \vert < \vert p_k \vert \\ 
+  \end{cases} \]  
+
+  When we have multiple poles,
+  \[ \mc{Z}^{-1} \lp \frac{pz^{-1}}{(1 - z^{-1}p)^2} \rp = np^n\cdot 1[n] \]  
+\end{frame}
+
+
+\begin{frame}[t]
+  \frametitle{Response of LTI systems}
+  Let the transfer function of an LTI system be,
+  \[ H(z) = \frac{B(z)}{A(z)} \]
+
+  Let the z-transform of the input signal be $X(z) = \frac{N(z)}{Q(z)}$. 
+
+  The output of the system is given by,
+  \[ Y(z) = \frac{B(z)N(z)}{A(z)Q(z)} \]
+
+  Assuming there are no repeated poles in the denominator $A(z) Q(z)$,
+  \[ Y(z) = \sum_{k=1}^N \frac{A_k}{1 - p_kz^{-1}} + \sum_{k=1}^L \frac{Q_k}{1 - q_kz^{-1}} \]
+  \[ y[n] = \sum_{k=1}^N A_k \cdot p_k^n \cdot 1[n] + \sum_{k=1}^N Q_k \cdot q_k^n \cdot 1[n] \]
+\end{frame}
+
+
+\begin{frame}[t]
+  \frametitle{Response of LTI systems}
+  Find the output of the causal LTI system for zero initial conditions,
+  \[ H(z) = \frac{1}{1 - 0.5z^{-1}} \]
+  for the following inputs.
+  \begin{enumerate}
+    \item $\delta[n]$
+    \item $1[n]$
+    \item $0.1^n \cdot 1[n]$
+    \item $\cos \lp 0.25\pi n\rp \cdot 1[n]$
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Response to non-zero initial conditions}
+  \[ Y(z) = H(z) X(z) + \frac{N_0(z)}{A(z)} \]
+
+  \begin{itemize}
+    \item $Y_{zs}(z) = H(z) X(z)$ is the zero-state response.
+    \item $Y_{zi}^+(z) = \frac{N_0(z)}{A(z)}$ is the zero-input response.
+  \end{itemize}
+
+  \[ y_{zi}[n] = \sum_{k=1}^N D_k \cdot p_k^n \cdot 1[n] \]
+
+  Total response.
+  \[ y[n] = \sum_{k=1}^N \lp A_k + D_k \rp \cdot p_k^n \cdot 1[n] + \sum_{k=1}^N Q_k \cdot q_k^n \cdot 1[n] \]
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Stability of LTI systems}
+  BIBO stability criteria.
+  \[ \sum_n \vert h[n] \vert < \infty \]
+
+  For a causal LTI system, if all the poles of its transfer function lie within the unit circle, then the system is BIBO stable.
+
+  In general, an LTI system is BIBO stable if and only if the ROC of $H(z)$ includes the unit circle.
+\end{frame}
 
 
 \end{document}
