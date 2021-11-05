@@ -188,7 +188,7 @@
 
 \begin{frame}[t]{States of a system}
 \begin{itemize}
-    \item A characteristic feature of most dynamical systems is their memory, i.e. the system's response (or output) depends on the present and past values of its input; We are only deal with causal systems here.
+    \item A characteristic feature of most dynamical systems is their memory, i.e. the system's response (or output) depends on the present and past values of its input; We are only dealing with causal systems here.
 
     \item If we get interested in a system at some arbitrary time $t_0$, we might not have a complete record of the past input to the system.
 
@@ -308,7 +308,7 @@
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{States ofa  system}
+    \frametitle{States of a  system}
     
 \end{frame}
 
@@ -446,6 +446,10 @@ Represent the following linear differential equations using the three elementary
 \end{itemize}
 \end{frame}
 
+\begin{frame}[t]
+    \frametitle{Block diagram representation of linear systems}
+    
+\end{frame}
 
 \begin{frame}{State space representation of discrete-time linear systems}
 
@@ -531,6 +535,11 @@ Represent the following linear differential equations using the three elementary
 \end{frame}
 
 
+\begin{frame}[t]
+    \frametitle{Block diagram representation of linear systems}
+    
+\end{frame}
+
 \begin{frame}[t]{State space visualization}
 For systems with two states, we can  visualize the state space trajectories of the system to gain better understanding of the system dynamics.
 
@@ -540,8 +549,9 @@ For systems with two states, we can  visualize the state space trajectories of t
 \begin{frame}[t]{State space visualization}
 The state dynamics of a mass, spring and damper system is given by the following equation,
 \[ \dot{\mf{x}}\ct{t} = \bmx 0 & 1\\ -\frac{k}{m} & -\frac{b}{m}\emx \mf{x}\ct{t} + \bmx 0 \\ \frac{1}{m}\emx \mf{u}\ct{t} \]
+\end{frame}
 
-\vspace{-0.3cm}
+\begin{frame}[t]{State space visualization}
 \begin{figure}
     \includegraphics[width=0.8\textwidth]{img/overdamped.eps}
     \captionsetup{labelformat=empty}
@@ -554,7 +564,7 @@ The state dynamics of a mass, spring and damper system is given by the following
 \begin{figure}
     \includegraphics[width=0.8\textwidth]{img/underdamped.eps}
     \captionsetup{labelformat=empty}
-    \caption{\small $m=1, \, b=3, \, k=1$}
+    \caption{\small $m=1, \, b=0.5, \, k=1$}
 \end{figure}
 
 \end{frame}
@@ -563,7 +573,7 @@ The state dynamics of a mass, spring and damper system is given by the following
 \begin{figure}
     \includegraphics[width=0.8\textwidth]{img/undamped.eps}
     \captionsetup{labelformat=empty}
-    \caption{\small $m=1, \, b=3, \, k=1$}
+    \caption{\small $m=1, \, b=0, \, k=1$}
 \end{figure}
 
 \end{frame}
