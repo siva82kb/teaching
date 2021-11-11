@@ -283,67 +283,67 @@ Comment of the stability: (a) $\bmx -1 & 1\\ 0 & -2\emx$; (b) $\bmx 0 & -1\\ 1 &
 \end{frame}
  
 
-\begin{frame}[t]{Internal stability -- Lyapunov stability criteria}
-\begin{itemize}
-    \item A general approach to evaluating the the stability of a dynamic system $\dot{\mf{x}}\ct{t} = \mf{f}\ct{\mf{x}\ct{t}}$ was proposed by Lyapunov. 
+% \begin{frame}[t]{Internal stability -- Lyapunov stability criteria}
+% \begin{itemize}
+%     \item A general approach to evaluating the the stability of a dynamic system $\dot{\mf{x}}\ct{t} = \mf{f}\ct{\mf{x}\ct{t}}$ was proposed by Lyapunov. 
 
-    \item Stability is inferred by looking at the energy associated with a system, and how it changes as the system evolves. i.e, whether the system dissipates, conserves or generates energy with time.
+%     \item Stability is inferred by looking at the energy associated with a system, and how it changes as the system evolves. i.e, whether the system dissipates, conserves or generates energy with time.
 
-    \item The idea of the energy associated with the system and its change with time is captured through a \textit{Lyapunov function} $V\ct{\mf{x}}: \mb{R}^n \to \mb{R}_{\geq 0}$,
-    \[ V\ct{\mf{0}} = 0 \,\, \text{ and } V\ct{\mf{x}} > 0 \,\, \forall \mf{x} \neq \mf{0}, \,\,\, \text{ and } \dot{V}\ct{\mf{x}} \leq 0 \]
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}[t]{Internal stability -- Lyapunov stability criteria}
-\begin{itemize}
-    \item $\dot{V}\ct{\mf{x}} = \ct{\frac{\partial}{\partial\mf{x}}V\ct{\mf{x}}}\dot{\mf{x}} = \ct{\frac{\partial}{\partial\mf{x}}V\ct{\mf{x}}}\mf{f}\ct{\mf{x}}$ is the time rate of change of energy of the system. 
-
-    \begin{itemize}
-        \item Stable (marginally) systems conserve energy, i.e. $\dot{V}\ct{\mf{x}} = 0$.
-        \item Asymptotically stable systems dissipate energy, i.e. $\dot{V}\ct{\mf{x}} < 0$.
-        \item Unstable systems generate energy, i.e. $\dot{V}\ct{\mf{x}} > 0$.
-    \end{itemize}
-
-    \item For a given system, if we can find a Lyapunov function, then the system is stable or asymptotically stable if $\dot{V}\ct{\mf{x}} < 0$.
-\end{itemize}
-\end{frame}
+%     \item The idea of the energy associated with the system and its change with time is captured through a \textit{Lyapunov function} $V\ct{\mf{x}}: \mb{R}^n \to \mb{R}_{\geq 0}$,
+%     \[ V\ct{\mf{0}} = 0 \,\, \text{ and } V\ct{\mf{x}} > 0 \,\, \forall \mf{x} \neq \mf{0}, \,\,\, \text{ and } \dot{V}\ct{\mf{x}} \leq 0 \]
+% \end{itemize}
+% \end{frame}
 
 
-\begin{frame}[t]{Internal stability -- Lyapunov stability criteria}
-\begin{itemize}
-    \item Consider, $\dot{\mf{x}}\ct{t} = \bmx 0 & 1 \\ -\frac{k}{m} & -\frac{b}{m} \emx\mf{x}\ct{t}$. The energy associated with this system is $V\ct{\mf{x}} = \frac{1}{2}kx_1^2 + \frac{1}{2}mx_2^2$ $\implies \dot{V}\ct{\mf{x}} = -b x_2^2$. Is this system stable?
-\end{itemize}
-\end{frame}
+% \begin{frame}[t]{Internal stability -- Lyapunov stability criteria}
+% \begin{itemize}
+%     \item $\dot{V}\ct{\mf{x}} = \ct{\frac{\partial}{\partial\mf{x}}V\ct{\mf{x}}}\dot{\mf{x}} = \ct{\frac{\partial}{\partial\mf{x}}V\ct{\mf{x}}}\mf{f}\ct{\mf{x}}$ is the time rate of change of energy of the system. 
+
+%     \begin{itemize}
+%         \item Stable (marginally) systems conserve energy, i.e. $\dot{V}\ct{\mf{x}} = 0$.
+%         \item Asymptotically stable systems dissipate energy, i.e. $\dot{V}\ct{\mf{x}} < 0$.
+%         \item Unstable systems generate energy, i.e. $\dot{V}\ct{\mf{x}} > 0$.
+%     \end{itemize}
+
+%     \item For a given system, if we can find a Lyapunov function, then the system is stable or asymptotically stable if $\dot{V}\ct{\mf{x}} < 0$.
+% \end{itemize}
+% \end{frame}
 
 
-\begin{frame}{Internal stability -- Lyapunov stability criteria}
-\begin{itemize}
-    \item Consider a general LTI system, $\dot{\mf{x}}\ct{t} = \mf{A}\mf{x}\ct{t}$, with non-singular $\mf{A}$.
-
-    A necessary and sufficient condition for this system to be asymptotically stable is for a given symmetric, positive definite matrix $\mf{Q}$, there exists a symmetric, positive definite matrix $\mf{P}$ such that
-    \[ \mf{A}^T\mf{P} + \mf{P}\mf{A} = - \mf{Q} \] 
-
-    \item We can arbitrarily choose $\mf{Q}$ and solve for $\mf{P}$. The positive definiteness of $\mf{P}$ is a necessary and sufficient condition for the asymptotic stability of the LTI system.
-\end{itemize}
-\end{frame}
+% \begin{frame}[t]{Internal stability -- Lyapunov stability criteria}
+% \begin{itemize}
+%     \item Consider, $\dot{\mf{x}}\ct{t} = \bmx 0 & 1 \\ -\frac{k}{m} & -\frac{b}{m} \emx\mf{x}\ct{t}$. The energy associated with this system is $V\ct{\mf{x}} = \frac{1}{2}kx_1^2 + \frac{1}{2}mx_2^2$ $\implies \dot{V}\ct{\mf{x}} = -b x_2^2$. Is this system stable?
+% \end{itemize}
+% \end{frame}
 
 
-\begin{frame}[t]{Internal stability -- Lyapunov stability criteria}
-Is this system asymptotically stable? $\dot{\mf{x}}\ct{t} = \bmx 1 & 2 \\ -1 & 2 \emx\mf{x}\ct{t}$
-\end{frame}
+% \begin{frame}{Internal stability -- Lyapunov stability criteria}
+% \begin{itemize}
+%     \item Consider a general LTI system, $\dot{\mf{x}}\ct{t} = \mf{A}\mf{x}\ct{t}$, with non-singular $\mf{A}$.
+
+%     A necessary and sufficient condition for this system to be asymptotically stable is for a given symmetric, positive definite matrix $\mf{Q}$, there exists a symmetric, positive definite matrix $\mf{P}$ such that
+%     \[ \mf{A}^T\mf{P} + \mf{P}\mf{A} = - \mf{Q} \] 
+
+%     \item We can arbitrarily choose $\mf{Q}$ and solve for $\mf{P}$. The positive definiteness of $\mf{P}$ is a necessary and sufficient condition for the asymptotic stability of the LTI system.
+% \end{itemize}
+% \end{frame}
 
 
-\begin{frame}[t]{Internal stability -- Discrete-time LTI systems}
-\begin{itemize}
-    \item The system $\mf{x}\dt{k+1} = \mf{A}\mf{x}\dt{k}$ is marginally stable if and only if all eigenvales of $\mf{A}$ either of magnitude 1 or less than 1, and the eigenvalues with magnitude 1 have the same algebraic and geometric multiplicity.
+% \begin{frame}[t]{Internal stability -- Lyapunov stability criteria}
+% Is this system asymptotically stable? $\dot{\mf{x}}\ct{t} = \bmx 1 & 2 \\ -1 & 2 \emx\mf{x}\ct{t}$
+% \end{frame}
 
-    \item  The system $\mf{x}\dt{k+1} = \mf{A}\mf{x}\dt{k}$ is asymptotically stable if and only if all eigenvales of $\mf{A}$ have magnitude less than 1.
 
-    \item $\mf{x}\dt{k} = \mf{A}^k\mf{x}\dt{0}, \, k > 0$, and $\mf{A} = \mf{V}\mf{J}\mf{V}^{-1}$
-    \[ \lV \mf{x}\dt{k} \rV = \lV \mf{A}^k\mf{x}\ct{0^-} \rV \leq \lV \mf{J}^k \rV \lV \mf{x}\ct{0^-} \rV\]
-\end{itemize}
-\end{frame}
+% \begin{frame}[t]{Internal stability -- Discrete-time LTI systems}
+% \begin{itemize}
+%     \item The system $\mf{x}\dt{k+1} = \mf{A}\mf{x}\dt{k}$ is marginally stable if and only if all eigenvales of $\mf{A}$ either of magnitude 1 or less than 1, and the eigenvalues with magnitude 1 have the same algebraic and geometric multiplicity.
+
+%     \item  The system $\mf{x}\dt{k+1} = \mf{A}\mf{x}\dt{k}$ is asymptotically stable if and only if all eigenvales of $\mf{A}$ have magnitude less than 1.
+
+%     \item $\mf{x}\dt{k} = \mf{A}^k\mf{x}\dt{0}, \, k > 0$, and $\mf{A} = \mf{V}\mf{J}\mf{V}^{-1}$
+%     \[ \lV \mf{x}\dt{k} \rV = \lV \mf{A}^k\mf{x}\ct{0^-} \rV \leq \lV \mf{J}^k \rV \lV \mf{x}\ct{0^-} \rV\]
+% \end{itemize}
+% \end{frame}
 
 
 \begin{frame}[t]{Internal stability -- Discrete-time LTI systems}
@@ -368,33 +368,33 @@ When $\mf{A}$ is not diagonalizable, then $\mf{J}$ is block diagonal.
 \end{frame}
 
 
-\begin{frame}[t]{Internal stability -- Lyapunov stability criteria (discrete-time system)}
-\begin{itemize}
-    \item For a discrete-time system, $\mf{x}\dt{k + 1} = \mf{A}\mf{x}\dt{k}$, we again start with a scalar, positive definite, continuous (``energy'' like) function $V\ct{\mf{x}}$.
+% \begin{frame}[t]{Internal stability -- Lyapunov stability criteria (discrete-time system)}
+% \begin{itemize}
+%     \item For a discrete-time system, $\mf{x}\dt{k + 1} = \mf{A}\mf{x}\dt{k}$, we again start with a scalar, positive definite, continuous (``energy'' like) function $V\ct{\mf{x}}$.
 
-    \item The rate of change of energy is captured by successive differences in the values of $V\ct{\mf{x}}$ for different values of $k$, i.e. $\Delta V\ct{\mf{x}} = V\ct{\mf{x}\dt{k + 1}} - V\ct{\mf{x}\dt{k}}$.
-    \begin{itemize}
-      \item Stable (marginally) systems conserve energy, i.e. $\Delta V\ct{\mf{x}} = 0$.
-      \item Asymptotically stable systems dissipate energy, i.e. $\Delta V\ct{\mf{x}} < 0$.
-      \item Unstable systems generate energy, i.e. $\Delta V\dt{\mf{x}} > 0$.
-    \end{itemize}
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}{Internal stability -- Lyapunov stability criteria (discrete-time system)}
-\begin{itemize}
-    \item A necessary and sufficient condition for this system $\mf{x}\dt{k+!} = \mf{A}\mf{x}\dt{k}$ to be asymptotically stable is for a given symmetric, positive definite matrix $\mf{Q}$, there exists a symmetric, positive definite matrix $\mf{P}$ such that
-    \[ \mf{A}^T\mf{P}\mf{A} + \mf{P} = - \mf{Q} \] 
-
-    \item We can arbitrarily choose $\mf{Q}$ and solve for $\mf{P}$. The positive definiteness of $\mf{P}$ is a necessary and sufficient condition for the asymptotic stability of the LTI system.
-\end{itemize}
-\end{frame}
+%     \item The rate of change of energy is captured by successive differences in the values of $V\ct{\mf{x}}$ for different values of $k$, i.e. $\Delta V\ct{\mf{x}} = V\ct{\mf{x}\dt{k + 1}} - V\ct{\mf{x}\dt{k}}$.
+%     \begin{itemize}
+%       \item Stable (marginally) systems conserve energy, i.e. $\Delta V\ct{\mf{x}} = 0$.
+%       \item Asymptotically stable systems dissipate energy, i.e. $\Delta V\ct{\mf{x}} < 0$.
+%       \item Unstable systems generate energy, i.e. $\Delta V\dt{\mf{x}} > 0$.
+%     \end{itemize}
+% \end{itemize}
+% \end{frame}
 
 
-\begin{frame}[t]{Internal stability -- Lyapunov stability criteria (discrete-time system)}
-Is this system asymptotically stable? $\mf{x}\dt{k+1} = \bmx 1 & 2 \\ -1 & 2 \emx\mf{x}\dt{k}$
-\end{frame}
+% \begin{frame}{Internal stability -- Lyapunov stability criteria (discrete-time system)}
+% \begin{itemize}
+%     \item A necessary and sufficient condition for this system $\mf{x}\dt{k+!} = \mf{A}\mf{x}\dt{k}$ to be asymptotically stable is for a given symmetric, positive definite matrix $\mf{Q}$, there exists a symmetric, positive definite matrix $\mf{P}$ such that
+%     \[ \mf{A}^T\mf{P}\mf{A} + \mf{P} = - \mf{Q} \] 
+
+%     \item We can arbitrarily choose $\mf{Q}$ and solve for $\mf{P}$. The positive definiteness of $\mf{P}$ is a necessary and sufficient condition for the asymptotic stability of the LTI system.
+% \end{itemize}
+% \end{frame}
+
+
+% \begin{frame}[t]{Internal stability -- Lyapunov stability criteria (discrete-time system)}
+% Is this system asymptotically stable? $\mf{x}\dt{k+1} = \bmx 1 & 2 \\ -1 & 2 \emx\mf{x}\dt{k}$
+% \end{frame}
 
 
 \begin{frame}[t]{Input-Output stability}

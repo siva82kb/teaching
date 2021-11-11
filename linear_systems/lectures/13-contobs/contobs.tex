@@ -266,9 +266,8 @@ logo=,
 \end{itemize}
 \end{frame}
 
+
 \begin{frame}{Controllability}
-\vspace{-0.5cm}
-\begin{small}
 \[ \dot{\mf{x}}\ct{t} = \mf{A}\mf{x}\ct{t} + \mf{B}\mf{u}\ct{t} \]
 Assuming the system starts at $t=0$, the state at $t = t_f$ is given by,\vspace{-0.15cm}
 \[ \mf{x}\ct{t_f} = e^{t_f\mf{A}}\mf{x}\ct{0} + \int_{0}^{t_f} e^{\ct{t_f - \tau}\mf{A}}\mf{B}\mf{u}\ct{\tau}d\tau \implies e^{-t_f\mf{A}}\mf{x}\ct{t_f} - \mf{x}\ct{0} =  \int_{0}^{t_f} e^{-\tau\mf{A}}\mf{B}\mf{u}\ct{\tau}d\tau \]
@@ -276,11 +275,14 @@ Assuming the system starts at $t=0$, the state at $t = t_f$ is given by,\vspace{
 From the Cayley-Hamilton theorem we have,
 \[ e^{-\tau\mf{A}} = \sum_{k=0}^{n-1}\alpha_k\ct{\tau}\mf{A}^k \implies e^{-t_f\mf{A}}\mf{x}\ct{t_f} - \mf{x}\ct{0} =  \sum_{k=0}^{n-1} \mf{A}^k\mf{B}\int_{0}^{t_f} \alpha_k\ct{\tau}\mf{u}\ct{\tau}d\tau \] \vspace{-0.15cm}
 \[ \implies e^{-t_f\mf{A}}\mf{x}\ct{t_f} - \mf{x}\ct{0} =  \bmx \mf{B} & \mf{A}\mf{B} & \mf{A}^2\mf{B} & \ldots & \mf{A}^{n-1}\mf{B} \emx \bmxc \int_{0}^{t_f} \alpha_0\ct{\tau}\mf{u}\ct{\tau}d\tau \\ \vdots \\ \int_{0}^{t_f} \alpha_{n-1}\ct{\tau}\mf{u}\ct{\tau}d\tau \emx \]
-
-A necessary condition for achieving any arbitrary LHS is that the \textit{controllability matrix} $\mathcal{C} = \bmx \mf{B} & \mf{A}\mf{B} & \ldots & \mf{A}^{n-1}\mf{B} \emx$ is full rank. This is also a sufficient condition, which we do not show here.
-\end{small}
 \end{frame}
- 
+
+
+\begin{frame}{Controllability}
+A necessary condition for achieving any arbitrary LHS is that the \textit{controllability matrix} $\mathcal{C} = \bmx \mf{B} & \mf{A}\mf{B} & \ldots & \mf{A}^{n-1}\mf{B} \emx$ is full rank. This is also a sufficient condition, which we do not show here.
+\end{frame}
+
+
 \begin{frame}[t]{Controllability}
 \begin{itemize}
     \item A system or the pair $\ct{\mf{A}, \mf{B}}$ is controllable, if and only if the controllability matrix $\mathcal{C} = \bmx \mf{B} & \mf{A}\mf{B} & \ldots & \mf{A}^{n-1}\mf{B} \emx$ has full rank, i.e. $rank\ct{\mathcal{C}} = n$.
@@ -288,60 +290,77 @@ A necessary condition for achieving any arbitrary LHS is that the \textit{contro
     \item Controllability is a system property and is not affected by the choice of coordinate system used for representing the state. Changing the basis of the state to the columns of the matrix $\mf{T}$ does not affect the rank of $\mathcal{C}$.
 
     \item Let $\tilde{\mf{x}} = \mf{T}^{-1}\mf{x}$, then we have $\tilde{\mf{A}} = \mf{T}^{-1}\mf{A}\mf{T}$ and $\tilde{\mf{B}} = \mf{T}^{-1}\mf{B}$. This implies that $\tilde{\mathcal{C}} = \mf{T}^{-1}\mathcal{C}$,  and $rank\ct{\tilde{\mathcal{C}}} = rank\ct{\mathcal{C}}$.
-    
-    \item \demoex{2}{\small Are the following systems $\ct{\mf{A}, \mf{B}}$ controllable. (a) $\ct{\bmx 1 & 0 \\ 0 & 2 \emx, \bmx 1 \\ 1\emx}$; (b) $\ct{\bmx 1 & 0 \\ 0 & 1 \emx, \bmx 1 \\ 1\emx}$; and (c) $\ct{\bmx 1 & 0 \\ 0 & 1 \emx, \bmx 1 & -1\\ 1 & 2\emx}$.}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[t]{Controllability}
+\begin{itemize}
+    \item Are the following systems $\ct{\mf{A}, \mf{B}}$ controllable. (a) $\ct{\bmx 1 & 0 \\ 0 & 2 \emx, \bmx 1 \\ 1\emx}$; (b) $\ct{\bmx 1 & 0 \\ 0 & 1 \emx, \bmx 1 \\ 1\emx}$; and (c) $\ct{\bmx 1 & 0 \\ 0 & 1 \emx, \bmx 1 & -1\\ 1 & 2\emx}$.
 \end{itemize}
 \end{frame}
  
-\begin{frame}{Controllability}
 
+\begin{frame}[t]{Controllability}
 When $\mf{A}$ is diagonalizable $\ct{\mf{A} = \mf{V}\mf{\Lambda}\mf{V}^{-1}}$, we have,
 \[ \dot{\tilde{\mf{x}}}\ct{t} = \mf{\Lambda}\tilde{\mf{x}}\ct{t} + \tilde{\mf{B}}\mf{u}\ct{t}, \,\,\,\text{where } \tilde{\mf{x}} = \mf{V}^{-1}\mf{x} \,\, \text{ and } \tilde{\mf{B}} = \mf{V}^{-1}\mf{B}\]
 \[ \tilde{\mf{x}}\ct{t_f} = e^{t_f\mf{\Lambda}}\tilde{\mf{x}}\ct{0} + \int_{0}^{t_f} e^{\ct{t_f - \tau}\mf{\Lambda}}\tilde{\mf{B}}\mf{u}\ct{\tau}d\tau \implies e^{-t_f\mf{\Lambda}}\tilde{\mf{x}}\ct{t_f} - \tilde{\mf{x}}\ct{0} =  \int_{0}^{t_f} e^{-\tau\mf{\Lambda}}\tilde{\mf{B}}\mf{u}\ct{\tau}d\tau \]
 
 When a row of $\tilde{\mf{B}}$ is zero, then the system is not controllable, i.e. that particular first order block does not receive any input.\vspace{0.2cm}
+\end{frame}
+
+
+\begin{frame}[t]{Controllability}
 
 When the two or more eigenvalue of the system are repeated, and we only have a single input to the system, then the system is not controllable (problem (b) in the previous slide).
 
 For example, let $\mf{\Lambda} = \lambda \mf{I}$, then we have, $e^{-\lambda t_f}\tilde{\mf{x}}\ct{t_f} - \tilde{\mf{x}}\ct{0} =  \ct{\int_{0}^{t_f} e^{-\lambda\tau}u\ct{\tau}d\tau}\tilde{\mf{B}}$. Thus, the RHS can only be along the column space of $\tilde{\mf{B}}$.
+
 \end{frame}
- 
-\begin{frame}{Controllability}
-\begin{small}
-When $\mf{A}$ is not diagonalizable $\ct{\mf{A} = \mf{V}\mf{J}\mf{V}^{-1}}$, where,\vspace{-0.2cm}
-{\scriptsize \[ \mf{J} = \left[
-\begin{array}{cc|ccc|ccc}
+
+
+\begin{frame}[t]{Controllability}
+When $\mf{A}$ is not diagonalizable $\ct{\mf{A} = \mf{V}\mf{J}\mf{V}^{-1}}$, where,
+
+\[ \mf{J} = \left[
+\begin{array}{cccccccc}
 \lambda_1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
 0 & \lambda_1 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
 0 & 0 & \lambda_2 & 1 & 0 & 0 & 0 & 0 \\
 0 & 0 & 0 & \lambda_2 & 1 & 0 & 0 & 0 \\
 0 & 0 & 0 & 0 & \lambda_2 & 0 & 0 & 0 \\
-\hline
 0 & 0 & 0 & 0 & 0 & \lambda_3 & \ldots & 0 \\
 \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
 0 & 0 & 0 & 0 & 0 & 0 & \dots & \lambda_k
 \end{array}
 \right]
-\]}
-\vspace{-0.25cm}
+\]
+
 \[ \dot{\tilde{\mf{x}}}\ct{t} = \mf{J}\tilde{\mf{x}}\ct{t} + \tilde{\mf{B}}\mf{u}\ct{t}, \,\,\,\text{where } \tilde{\mf{x}} = \mf{V}^{-1}\mf{x} \,\, \text{ and } \tilde{\mf{B}} = \mf{V}^{-1}\mf{B} \]
 
-When the different Jordan blocks have distinct eigenvalues, and any of the rows of $\tilde{\mf{B}}$ corresponding the to the last row of a Jordan block is zero, then the system is not controllable, i.e. that particular Jordan order block does not receive any input.\vspace{0.1cm}
-
-When the two or more Jordan blocks have the same eigenvalue, and we only have a single input to the system, then the system is not controllable (problem (b) in the previous slide).\vspace{0.2cm}
-\end{small}
-
-\demoex{2}{Is a mass $M$ in free space acted upon by a force $\mf{f} = \bmx f_1 & f_2 & f_3\emx^T$ controllable?}
 \end{frame}
 
-\begin{frame}{Controllability -- Discrete-time system}
+
+\begin{frame}[t]{Controllability}
+
+
+When the different Jordan blocks have distinct eigenvalues, and any of the rows of $\tilde{\mf{B}}$ corresponding the to the last row of a Jordan block is zero, then the system is not controllable, i.e. that particular Jordan order block does not receive any input.\vspace{0.2cm}
+
+When the two or more Jordan blocks have the same eigenvalue, and we only have a single input to the system, then the system is not controllable (problem (b) in the previous slide).\vspace{0.2cm}
+
+
+Is a mass $M$ in free space acted upon by a force $\mf{f} = \bmx f_1 & f_2 & f_3\emx^T$ controllable?
+\end{frame}
+
+\begin{frame}[t]{Controllability -- Discrete-time system}
 \vspace{-0.2cm}
 \[ \mf{x}\dt{k+1} = \mf{A}\mf{x}\dt{k} + \mf{B}\mf{u}\dt{k} \]
 Assuming the system starts at $k=0$, the state at $k$ is given by,\vspace{-0.15cm}
 \[ \mf{x}\dt{k} = \mf{A}^{k}\mf{x}\dt{0} + \sum_{l=0}^{k-1} \mf{A}^{k-l-1}\mf{B}\mf{u}\dt{l} \]\vspace{-0.15cm}
 \[ \mf{x}\dt{k} - \mf{A}^{k}\mf{x}\dt{0} = \bmx \mf{B} & \mf{A}\mf{B} & \mf{A}^2\mf{B} & \ldots & \mf{A}^{k-1}\mf{B} \emx \bmxc \mf{u}\dt{k-1} \\ \mf{u}\dt{k-2} \\ \ldots \\ \mf{u}\dt{0} \emx = \mathcal{C}_k \tilde{\mf{u}}_{0:k-1} \]
-\vspace{0.1cm}
+\end{frame}
+
+\begin{frame}[t]{Controllability -- Discrete-time system}
 
 Assuming $\mf{x}\dt{0} = \mf{0}$, what all values can $\mf{x}\dt{k}$ take? \demoexc{2}{black}{ $\longrightarrow \mf{x}\dt{k} \in C\ct{\mathcal{C}_k}$. $\mf{x}\dt{k}$ can only be in the subspace $C\ct{\mathcal{C}_k}$.
 \vspace{0.1cm}
@@ -350,60 +369,74 @@ Starting from $k=0$, the possible values $\mf{x}\dt{k}$ can take grows until, $C
 \[ C\ct{\mathcal{C}_0} \subseteq C\ct{\mathcal{C}_1} \subseteq C\ct{\mathcal{C}_2 \cdots} \subseteq C\ct{\mathcal{C}_{n-1}} \subseteq C\ct{\mathcal{C}_{n}} \subseteq \mb{R}^n \]
 }
 \end{frame}
+
  
-\begin{frame}{Controllability -- Discrete-time system}
+\begin{frame}[t]{Controllability -- Discrete-time system}
 \begin{itemize}
     \item The subspace of reachable states can at most grow for $n$ time steps, as we add more columns from $\mf{A}^k\mf{B}$.
 
     \item $\mathcal{C}_{n}$ is the subspace that can be reached by the system and nothing more. Because, the columns of $\mf{A}^n\mf{B}$ are a linear combination of the columns of $\mf{B}, \mf{A}\mf{B}, \mf{A}^2\mf{B}, \ldots \mf{A}^{n-1}\mf{B}$.
 
     \item Thus, the system is controllable if and only if $\mathcal{C}_{n} = \mb{R}^n$, or the $rank \ct{\mathcal{C}_n} = n$.
+\end{itemize}
+\end{frame}
 
+
+\begin{frame}{Controllability -- Discrete-time system}
+\begin{itemize}
     \item In the discrete case, the controllability matrix $\mathcal{C}_n$ can also be used to determine the input sequence $\tilde{\mf{u}}_{0:n-1}$ that takes you from state $\mf{x}\dt{0}$ to $\mf{x}\dt{n}$.
     \[ \mf{x}\dt{k} - \mf{A}^{k}\mf{x}\dt{0} = \mathcal{C}_n \tilde{\mf{u}}_{0:n-1} \implies \tilde{\mf{u}}_{0:n-1} = \mathcal{C}_n^{\dagger} \ct{\mf{x}\dt{k} - \mf{A}^{k}\mf{x}\dt{0}} \]
     Where, $\mathcal{C}_n^\dagger = \mathcal{C}_n^{-1}$ for a single input system, and it is a right inverse when there are more than one inputs to the system.
 \end{itemize}
-\demoex{2}{\footnotesize Which of the following systems are controllable? (a) $\ct{\bmx 1 & 0 \\ 0 & 2 \emx, \bmx 1 \\ 1\emx}$; (b) $\ct{\bmx 1 & 0 \\ 0 & 1 \emx, \bmx 1 \\ 1\emx}$; and (c) $\ct{\bmx 1 & 0 \\ 0 & 0 \emx, \bmx 1\\ 0\emx}$.}
+
+
+Which of the following systems are controllable? (a) $\ct{\bmx 1 & 0 \\ 0 & 2 \emx, \bmx 1 \\ 1\emx}$; (b) $\ct{\bmx 1 & 0 \\ 0 & 1 \emx, \bmx 1 \\ 1\emx}$; and (c) $\ct{\bmx 1 & 0 \\ 0 & 0 \emx, \bmx 1\\ 0\emx}$.
 \end{frame}
- 
+
+
 \begin{frame}{Controllability -- Discrete-time system}
 When $\mf{A}$ is diagonalizable $\ct{\mf{A} = \mf{V}\mf{\Lambda}\mf{V}^{-1}}$, we have,
 \[ \tilde{\mf{x}}\dt{k+1} = \mf{\Lambda}\tilde{\mf{x}}\dt{k} + \tilde{\mf{B}}\mf{u}\dt{k}, \,\,\,\text{where } \tilde{\mf{x}} = \mf{V}^{-1}\mf{x} \,\, \text{ and } \tilde{\mf{B}} = \mf{V}^{-1}\mf{B} \]
 \[ \tilde{\mf{x}}\dt{k} = \mf{\Lambda}^k\tilde{\mf{x}}\dt{0} + \sum_{l=0}^{k-1} \mf{\Lambda}^{k - l - 1}\tilde{\mf{B}}\mf{u}\dt{l} \implies \tilde{\mf{x}}\dt{k} - \mf{\Lambda}^{k}\tilde{\mf{x}}\dt{0} =  \sum_{l=0}^{k-1}\mf{\Lambda}^{k-l-1}\tilde{\mf{B}}\mf{u}\ct{\tau}d\tau \]
 
 When a row of $\tilde{\mf{B}}$ is zero, then the system is not controllable, i.e. that particular first order block does not receive any input.\vspace{0.2cm}
+\end{frame}
 
+
+\begin{frame}{Controllability -- Discrete-time system}
 When the two or more eigenvalue of the system are repeated, and we only have a single input to the system, then the system is not controllable (problem (b) in the previous slide).
 
 For example, let $\mf{\Lambda} = \lambda \mf{I}$, then we have, $\tilde{\mf{x}}\dt{k} - \lambda^k\tilde{\mf{x}}\dt{0} =  \ct{\sum_{l=0}^{k-1} \lambda^{k-l-1}u\dt{l}d}\tilde{\mf{B}}$. Thus, the RHS can only be along the column space of $\tilde{\mf{B}}$.
 \end{frame}
 
+
 \begin{frame}{Controllability -- Discrete-time system}
-\begin{small}
-When $\mf{A}$ is not diagonalizable $\ct{\mf{A} = \mf{V}\mf{J}\mf{V}^{-1}}$, where,\vspace{-0.2cm}
-{\scriptsize \[ \mf{J} = \left[
-\begin{array}{cc|ccc|ccc}
+When $\mf{A}$ is not diagonalizable $\ct{\mf{A} = \mf{V}\mf{J}\mf{V}^{-1}}$, where,
+\[ \mf{J} = \left[
+\begin{array}{cccccccc}
 \lambda_1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
 0 & \lambda_1 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
 0 & 0 & \lambda_2 & 1 & 0 & 0 & 0 & 0 \\
 0 & 0 & 0 & \lambda_2 & 1 & 0 & 0 & 0 \\
 0 & 0 & 0 & 0 & \lambda_2 & 0 & 0 & 0 \\
-\hline
 0 & 0 & 0 & 0 & 0 & \lambda_3 & \ldots & 0 \\
 0 & 0 & 0 & 0 & 0 & \vdots & \ddots & \vdots \\
 0 & 0 & 0 & 0 & 0 & 0 & \dots & \lambda_k
 \end{array}
 \right]
-\]}
-\vspace{-0.25cm}
+\]
+
 \[ \tilde{\mf{x}}\dt{k+1} = \mf{J}\tilde{\mf{x}}\dt{k} + \tilde{\mf{B}}\mf{u}\dt{k}, \,\,\,\text{where } \tilde{\mf{x}} = \mf{V}^{-1}\mf{x} \,\, \text{ and } \tilde{\mf{B}} = \mf{V}^{-1}\mf{B} \]
-
-When the different Jordan blocks have distinct eigenvalues, and any of the rows of $\tilde{\mf{B}}$ corresponding the to the last row of a Jordan block is zero, then the system is not controllable, i.e. that particular Jordan order block does not receive any input.\vspace{0.1cm}
-
-When the two or more Jordan blocks have the same eigenvalue, and we only have a single input to the system, then the system is not controllable (problem (b) in the previous slide).\vspace{0.2cm}
-\end{small}
 \end{frame}
+
+
+\begin{frame}[t]{Controllability -- Discrete-time system}
+When the different Jordan blocks have distinct eigenvalues, and any of the rows of $\tilde{\mf{B}}$ corresponding the to the last row of a Jordan block is zero, then the system is not controllable, i.e. that particular Jordan order block does not receive any input.
+\vspace{0.5cm}
+
+When the two or more Jordan blocks have the same eigenvalue, and we only have a single input to the system, then the system is not controllable (problem (b) in the previous slide).
+\end{frame}
+
 
 \begin{frame}[t]{Observability}
 \[ \dot{\mf{x}}\ct{t} = \mf{A}\mf{x}\ct{t} + \mf{B}\mf{u}\ct{t} \]
@@ -418,20 +451,22 @@ When the two or more Jordan blocks have the same eigenvalue, and we only have a 
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Observability}
-\vspace{-0.5cm}
-\begin{small}
+
+\begin{frame}[t]{Observability}
 \[ \mf{y}\ct{t} = \mf{C}\mf{x}\ct{t} + \mf{D}\mf{u}\ct{t} \]
 Assuming the system starts at $t=0$, the output at time $t$ is given by,\vspace{-0.15cm}
 \[ \mf{y}\ct{t} = \mf{C}e^{t\mf{A}}\mf{x}\ct{0} + \int_{0}^{t} \mf{C}e^{\ct{t - \tau}\mf{A}}\mf{B}\mf{u}\ct{\tau}d\tau + \mf{D}\mf{u}\ct{t} \]
 
 Let $\hat{\mf{y}}\ct{t} = \mf{y}\ct{t} - \int_{0}^{t} \mf{C}e^{\ct{t - \tau}\mf{A}}\mf{B}\mf{u}\ct{\tau}d\tau - \mf{D}\mf{u}\ct{t}$. Then we have,\vspace{-0.25cm}
 \[ \hat{\mf{y}}\ct{t} = \mf{C}e^{t\mf{A}}\mf{x}\ct{0} \implies \hat{\mf{y}}\ct{t} = \sum_{k=0}^{n-1} \alpha_k\ct{t}\mf{C}\mf{A}^k\mf{x}\ct{0} =  \bmxc \alpha_0\ct{t}\mf{I}_{r} & \ldots & \alpha_{n-1}\ct{t}\mf{I}_{r} \emx \bmxc \mf{C} \\ \mf{C}\mf{A} \\ \mf{C}\mf{A}^2 \\ \vdots \\ \mf{C}\mf{A}^{n-1} \emx \mf{x}\ct{0}  \]
-
-A necessary condition to uniquely determine $\mf{x}\ct{0}$ from $\tilder{\mf{y}}\ct{t}$ is that the \textit{observability matrix} $\mathcal{O} = \bmx \mf{C} & \mf{C}\mf{A} & \ldots & \mf{C}\mf{A}^{n-1} \emx^T$ is full rank. This is also a sufficient condition, which we do not show here.
-\end{small}
 \end{frame}
- 
+
+
+\begin{frame}{Observability}
+A necessary condition to uniquely determine $\mf{x}\ct{0}$ from $\tilde{\mf{y}}\ct{t}$ is that the \textit{observability matrix} $\mathcal{O} = \bmx \mf{C} & \mf{C}\mf{A} & \ldots & \mf{C}\mf{A}^{n-1} \emx^T$ is full rank. This is also a sufficient condition, which we do not show here.
+\end{frame}
+
+
 \begin{frame}[t]{Observability}
 \begin{itemize}
     \item A system or the pair $\ct{\mf{A}, \mf{C}}$ is controllable, if and only if the controllability matrix $\mathcal{O} = \bmx \mf{C} & \mf{C}\mf{A} & \ldots & \mf{C}\mf{A}^{n-1} \emx^T$ has full rank, i.e. $rank\ct{\mathcal{O}} = n$.
@@ -439,7 +474,12 @@ A necessary condition to uniquely determine $\mf{x}\ct{0}$ from $\tilder{\mf{y}}
     \item Observability is a system property and is not affected by the choice of coordinate system used for representing the state. Changing the basis of the state to the columns of the matrix $\mf{T}$ does not affect the rank of $\mathcal{O}$.
 
     \item Let $\tilde{\mf{x}} = \mf{T}^{-1}\mf{x}$, then we have $\tilde{\mf{A}} = \mf{T}^{-1}\mf{A}\mf{T}$ and $\tilde{\mf{C}} = \mf{B}\mf{T}$. This implies that $\tilde{\mathcal{O}} = \mathcal{O}\mf{T}$, and $rank\ct{\tilde{\mathcal{O}}} = rank\ct{\mathcal{O}}$.
+\end{itemize}
+\end{frame}
 
+
+\begin{frame}[t]{Observability}
+\begin{itemize}
     \item When $\mf{A}$ is diagonalizable $\ct{\mf{A} = \mf{V}\mf{\Lambda}\mf{V}^{-1}}$, we have, $\hat{\mf{y}}\ct{t} = \tilde{\mf{C}}e^{t\mf{\Lambda}}\tilde{\mf{x}}\ct{0}$
 
     \begin{itemize}
@@ -449,6 +489,7 @@ A necessary condition to uniquely determine $\mf{x}\ct{0}$ from $\tilder{\mf{y}}
     \end{itemize}
 \end{itemize}
 \end{frame}
+
 
 \begin{frame}{Observability -- Discrete-time system}
 \vspace{-0.2cm}
@@ -463,6 +504,7 @@ When $rank\ct{\mathcal{O}_k} = n$, then we can uniquely determine any $\mf{x}\ct
 
 Starting with $k=0$, the $rank\ct{\mathcal{O}_k}$ can grow till $k = n-1$.
 \end{frame}
+
  
 \begin{frame}{Observability -- Discrete-time system}
 \begin{itemize}
