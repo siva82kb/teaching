@@ -293,3 +293,4 @@ TSWLatexianTemp*
 */analysis/waveform-database-software-package-wfdb-for-python-3.3.0/
 *.xlsx
 transfer.py
+/2021/*
