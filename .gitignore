@@ -294,3 +294,4 @@ TSWLatexianTemp*
 *.xlsx
 transfer.py
 /2021/*
+/clinical_attachment/*
