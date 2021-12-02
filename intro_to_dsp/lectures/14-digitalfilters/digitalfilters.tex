@@ -288,7 +288,7 @@ Appropriate placement of the poles and zeros will allow us to obtain a frequency
 \begin{frame}[t]
   \frametitle{Pole-Zero Placement and Frequency Response}
   Consider the two pole system,
-  \[ H(z) = \frac{b_0}{1 - 2pz^{-1} - p^2z^{-2}} \]
+  \[ H(z) = \frac{b_0}{1 - 2pz^{-1} + p^2z^{-2}} \]
   Determine $b_0$ and $p$ such that the frequency response,
    \[ H(\Omega = 0) = 1 \quad \text{and} \quad \big \vert H(\Omega = \frac{\pi}{2}) \big \vert = \frac{1}{\sqrt{2}} \]
 \end{frame}
@@ -303,7 +303,7 @@ Appropriate placement of the poles and zeros will allow us to obtain a frequency
 \begin{frame}[t]
   \frametitle{Pole-Zero Placement and Frequency Response}
   Consider the two pole system,
-  \[ H(z) = \frac{b_0}{1 - 2pz^{-1} - p^2z^{-2}} \]
+  \[ H(z) = \frac{b_0}{1 - 2pz^{-1} + p^2z^{-2}} \]
   Determine $b_0$ and $p$ such that the frequency response,
    \[ H(\Omega = 0) = 1 \quad \text{and} \quad \big \vert H(\Omega = \frac{\pi}{4}) \big \vert = \frac{1}{\sqrt{2}} \]
 \end{frame}
@@ -357,7 +357,7 @@ Appropriate placement of the poles and zeros will allow us to obtain a frequency
   \frametitle{Pole-Zero Placement and Frequency Response}
   \[ H(z) = b_0\frac{\lp 1 - z_1z^{-1}\rp \lp 1 - z_2z^{-1}\rp}{\lp 1 - pz^{-1} \rp \lp 1 - p^{*}z^{-1} \rp} \]
 
-  Determine $b_0$, $z_1$, $z_2$, and $p$ to desgin a bandpass filter such that, $H \lp \Omega = 0\rp = 0$ and $H \lp \Omega = \pi \rp = 0$, the center of the passband in at $\Omega = \frac{\pi}{4}$ and $\vert H\lp \Omega = \frac{\pi}{2} \rp \vert = \frac{1}{\sqrt{2}}$.
+  Determine $b_0$, $z_1$, $z_2$, and $p$ to desgin a bandpass filter such that, $H \lp \Omega = 0\rp = 0$ and $H \lp \Omega = \pi \rp = 0$, the center of the passband in at $\Omega = \frac{\pi}{2}$ and $\vert H\lp \Omega = \frac{\pi}{4} \rp \vert = \frac{1}{\sqrt{2}}$.
 \end{frame}
 
 
@@ -380,11 +380,11 @@ Appropriate placement of the poles and zeros will allow us to obtain a frequency
 
   We will only deal with filter with real impulse response,
   \[ \implies H\lp \Omega \rp = H^*\lp -\Omega \rp, \,\,\, -\pi \leq \Omega < \pi \implies \begin{cases} \vert H\lp \Omega \rp \text{ is an even function of } \Omega \\
-  \arg H\lp \Omega \rp \text{ is an off function of } \Omega \end{cases} \]
+  \arg H\lp \Omega \rp \text{ is an odd function of } \Omega \end{cases} \]
 
   We will only discuss the design of linear phase filters.
 
-  \[  \arg H\lp \Omega \rp = \begin{cases} m \cdot \Omega, & H\lp \Omega  \rp > 0 \\ m \cdot \Omega + \pi, & H\lp \Omega \rp < 0 \end{cases} \]
+  \[  \arg H\lp \Omega \rp = \begin{cases} m \cdot \Omega, & H\lp \Omega  \rp > 0 \\ m \cdot \Omega \pm \pi, & H\lp \Omega \rp < 0 \end{cases} \]
   \vspace{0.1cm}
 
   Any signal that is symmetric or anti-symmetric with response to some time point will have a linear phase response.
@@ -425,7 +425,7 @@ Appropriate placement of the poles and zeros will allow us to obtain a frequency
   
   Let the length of the impulse response be $M$ (odd). Then, an anti-symmetric, causal impulse response is given by,
   \[ h[n] = -h[M - n -1] \implies H\lp \Omega \rp = H_r\lp \Omega \rp e^{j \Theta\lp \Omega \rp}\]
-  \[ \Theta\lp \Omega \rp = \begin{cases} \frac{\pi}{2} - \Omega \lp \frac{M-1}{2}\rp, & H_r\lp \Omega \rp > 0 \\ \frac{3\pi}{2}  - \Omega \lp \frac{M-1}{2} \rp + \pi, & H_r\lp \Omega \rp < 0 \\ \end{cases} \]
+  \[ \Theta\lp \Omega \rp = \begin{cases} \frac{\pi}{2} - \Omega \lp \frac{M-1}{2}\rp, & H_r\lp \Omega \rp > 0 \\ \frac{3\pi}{2}  - \Omega \lp \frac{M-1}{2} \rp, & H_r\lp \Omega \rp < 0 \\ \end{cases} \]
 \end{frame}
 
 
@@ -514,12 +514,12 @@ Appropriate placement of the poles and zeros will allow us to obtain a frequency
 \end{frame}
 
 
-\begin{frame}[t]
-  \frametitle{FIR Filter Design}
+% \begin{frame}[t]
+%   \frametitle{FIR Filter Design}
 
-  \[ H_d\lp \Omega \rp \xrightarrow[]{\text{IDTFT}} h_d[n] \xrightarrow[{w[n]}]{\text{Window}} h[n] = w[n] \cdot h_d[n] \longrightarrow b_i = h[i], \,\, 0 \leq i \leq M \]
+%   \[ H_d\lp \Omega \rp \xrightarrow[]{\text{IDTFT}} h_d[n] \xrightarrow[{w[n]}]{\text{Window}} h[n] = w[n] \cdot h_d[n] \longrightarrow b_i = h[i], \,\, 0 \leq i \leq M \]
 
-\end{frame}
+% \end{frame}
 
 
 \begin{frame}{FIR Filter Design}
@@ -532,7 +532,7 @@ Appropriate placement of the poles and zeros will allow us to obtain a frequency
 
   Disadvantages of FIR filters:
   \begin{itemize}
-    \item Same specs might require longer filter.
+    \item Same specs might require a longer filter.
     \item Might requires iterative numerical procedures for design.
   \end{itemize}
   \vspace{1cm}
