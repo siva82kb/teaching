@@ -298,3 +298,4 @@ transfer.py
 /clinical_attachment/prev/*
 *.pptx
 assignment/*.docx
+_temp*
